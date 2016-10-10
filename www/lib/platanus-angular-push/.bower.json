@@ -1,0 +1,38 @@
+{
+  "name": "platanus-angular-push",
+  "version": "0.1.1",
+  "authors": [
+    "René Morales <rene@platan.us>"
+  ],
+  "description": "Dead-easy push notifications for Cordova Angular apps",
+  "license": "MIT",
+  "homepage": "https://github.com/platanus/angular-push",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/platanus/angular-push.git"
+  },
+  "main": "./dist/angular-push.min.js",
+  "ignore": [
+    "**/.*",
+    "package.json",
+    "test"
+  ],
+  "dependencies": {
+    "ngCordova": "~0.1.23-alpha"
+  },
+  "devDependencies": {
+    "angular": "~1.2.27",
+    "angular-mocks": "~1.2.27",
+    "angular-restmod": "~1.1.7"
+  },
+  "_release": "0.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.1",
+    "commit": "7662d42153497bd872057baf04bc508719dc0cac"
+  },
+  "_source": "https://github.com/platanus/angular-push.git",
+  "_target": "^0.1.1",
+  "_originalSource": "platanus-angular-push",
+  "_direct": true
+}

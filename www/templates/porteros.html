@@ -1,0 +1,33 @@
+<ion-view view-title="Porteros">
+	<div class="bar bar-header bar-dark">
+        <button class="button button-icon button-clear ion-android-arrow-back" ui-sref="app.inicio">
+        </button>
+		<h1 class="title">Usuarios Porteria</h1>
+		<a ng-if="User.roles_id == '2'" class="button button-icon icon ion-android-add" ui-sref="porteroscreate"></a>
+	</div>
+	<ion-content  class="has-header" padding="false">
+
+		<div class="row rowbottom">
+            <a ng-click="porterosbitacora()" type="button" class="btn btnpurplelg btn-block">
+              Ver Bitacora de Reportes
+            </a>
+        </div>
+
+		<div ng-repeat="portero in porteroslist">
+		    <div class="row rowbottom">
+		    	<div class="col-md-4 col-sm-4 col-xs-4 topbottom20">
+		            <center>
+		              <img src="http://ihomeapp.net/imagenes/{{portero.imagen}}" class="img-circle" alt="User Image">
+		            </center>
+		        </div>
+		        <div class="col-md-8 col-sm-8 col-xs-8 top10">
+		        	<p>
+		        	{{portero.usuarios.name}}<br>
+	                {{portero.usuarios.email}}<br>
+	                Cedula: {{portero.cedula}}
+	                </p>	                   
+	            </div>       
+	     	</div>
+     	</div>
+	</ion-content>
+</ion-view>

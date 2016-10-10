@@ -1,0 +1,62 @@
+<ion-view view-title="Personal de Planta">
+	<div class="bar bar-header bar-dark">
+        <a class="button button-icon button-clear ion-android-arrow-back" ng-click="personal()">
+        </a>
+		<h1 class="title">Registrar Personal Planta</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+	<form ng-submit="add()" name="myForm" novalidate>
+		<br>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<center>
+					<b>Debe tomar una foto para el registro</b>
+					<img class="img-circle User" ng-src="{{photo}}" ng-model="data.imagen" ng-required="true">
+					<a class="button button-block button-positive" ng-click="getPhoto('camera')">
+				    	<i class="icon ion-camera"></i>
+				    </a>
+		    		<a class="button button-block button-dark" ng-click="getPhoto('library')">
+				    	<i class="icon ion-images"></i>
+				    </a>
+				</center>
+			</div>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Cedula</span>
+                    <input ng-model="data.cedula" type="number" class="form-control input" ng-required="true">
+                </div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Nombre Apellido</span>
+                    <input ng-model="data.name" type="text" class="form-control input" ng-required="true">
+                </div>
+			</div>
+		</div>	
+
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Departamento</span>
+                    <select ng-model="data.departamento" class="form-control input">
+                    	<option value="aseo" ng-selected="true">Aseo</option>
+                    	<option value="seguridad">Seguridad</option>
+                    </select>
+                </div>
+			</div>
+		</div>	
+        
+		<div class="padding">
+            <button type="submit" class="button button-block button-dark" ng-disabled="myForm.$invalid">
+            	<i class="icon ion-android-done"></i>
+            </button>
+        </div>
+	</form>
+	</ion-content>
+</ion-view>

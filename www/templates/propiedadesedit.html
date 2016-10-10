@@ -1,0 +1,73 @@
+<ion-view view-title="Mi Propiedad">
+	<div class="bar bar-header bar-dark">
+        <button class="button button-icon button-clear ion-android-arrow-back" ng-click="mipropiedad()">
+        </button>
+		<h1 class="title">Informacion de Propiedad</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+		<div class="row">
+		<div class="rowbottom">
+	        <div class="col-md-6 col-sm-6 col-xs-6 top20">
+	        <i class="fa fa-circle-thin"></i> AVALUO DE PRECIO
+	        </div>
+	        <div class="col-md-3 col-sm-3 col-xs-3 top20">
+	        	<input type="text"  ng-model="data.avaluo" class="form-control">
+	        </div>
+	        <div class="col-md-3 col-sm-3 col-xs-3 left-20 top20">
+	            <span>MILLONES</span>
+	        </div>
+        </div>
+        </div>
+			
+
+		<div class="row">
+			<div class="rowbottom">
+	            <div class="col-md-6 col-sm-6 col-xs-6 top20">
+	            	<i class="fa fa-circle-thin"></i> AÑOS DE CONSTRUCCÍON
+	            </div>
+	            <div class="col-md-3 col-sm-3 col-xs-3 top20">
+	            	<input type="text"  ng-model="data.construccion" class="form-control">
+	            </div>
+	            <div class="col-md-3 col-sm-3 col-xs-3 left-20 top20">
+	                <span>AÑOS</span>
+	            </div>
+            </div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-sm-8 col-xs-8 top20">
+              <i class="fa fa-circle-thin"></i> PLANOS DEL INMUBLE
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4 top20">
+              <a ng-click="getPhoto('camera', 'planos')" class="btn btnorage btn-block"><i class="icon ion-camera"></i></a>
+              <a ng-click="verplanos(propiedadeslist.id)" class="btn btnorage btn-block">VER</a>
+            </div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-sm-8 col-xs-8 top20">
+              <i class="fa fa-circle-thin"></i> ESCRITURAS DEL INMUBLE
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4 top20">
+              <a ng-click="getPhoto('camera', 'escrituras')" class="btn btnpurple btn-block"><i class="icon ion-camera"></i></a>
+              <a ng-click="verescrituras(propiedadeslist.id)" class="btn btnpurple btn-block">VER</a>
+            </div>
+		</div>
+		<br>
+        <center>
+        <a ng-click="add()" class="btn btncircle" ><img  src="public/dist/img/Edit.png" ></a>
+        </center>
+
+        <script id="image-modal.html" type="text/ng-template">
+	         <ion-modal-view class="image-modal transparent" ng-click="closeModal()">
+	            <ion-slide-box on-slide-changed="slideChanged(index)" show-pager="true">
+	              <ion-slide ng-repeat="oImage in aImages">
+	              	<p class="info">{{msj}}</p>
+	                <img src="http://ihomeapp.net/imagenes/{{oImage.imagen}}" class="fullscreen-image" />
+	                <center>
+			        <a ng-click="eliminar(oImage.id, msj)" class="btn btncircle" ><img  src="img/icon-Trash2.gif" ></a>
+			        </center>
+	              </ion-slide>
+	            </ion-slide-box>
+	         </ion-modal-view>
+     	</script>
+	</ion-content>
+</ion-view>

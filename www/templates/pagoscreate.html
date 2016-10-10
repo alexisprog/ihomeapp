@@ -1,0 +1,58 @@
+<ion-view view-title="Reportes Daños">
+	<div class="bar bar-header bar-dark">
+        <a class="button button-icon button-clear ion-android-arrow-back" ng-click="pagos()">
+        </a>
+		<h1 class="title">Crear Pago</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+	<form ng-submit="add()" name="myForm" novalidate>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Titulo</span>
+                    <input ng-model="data.titulo" type="text" class="form-control input" ng-required="true">
+                </div>
+			</div>
+		</div>
+		<div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="form-group rowbottom">
+            <span>Fecha Vencimiento</span>
+              <input type="text" ng-datepicker ng-model="data.vencimiento" ng-required="true">
+          </div>
+          </div>
+        </div>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Valor a Pagar</span>
+                    <input ng-model="data.monto" type="number" min="0" class="form-control input" ng-required="true">
+                </div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+			        <span>Busca Vecino por nombre o apartamento</span>
+			        <select id="mySel2" class="form-control" multiple="multiple">
+					    <option ng-repeat="vecino in vecinoslist" ng-model="vecino.id" value="{{ vecino.id }}">
+					    {{ vecino.usuarios.name }} - Apto: {{ vecino.apartamento }}
+					    </option>
+					</select>
+					{{selectedValues}}
+			    </div>
+			</div>
+		</div>
+
+		      
+		
+
+		<div class="padding">
+            <button type="submit" class="button button-block button-dark" ng-disabled="myForm.$invalid">
+            	<i class="icon ion-android-done"></i>
+            </button>
+        </div>
+	</form>
+	</ion-content>
+</ion-view>

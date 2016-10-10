@@ -1,0 +1,67 @@
+<ion-view view-title="Noticias">
+	<div class="bar bar-header bar-dark">
+        <a class="button button-icon button-clear ion-android-arrow-back" ng-click="pagos()">
+        </a>
+		<h1 class="title">Informacion de Pago</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Titulo</span>
+                    <p style="color: #8a8aaa; text-align: justify;">{{pagos2.titulo}}</p>
+                </div>
+			</div>
+		</div>
+		<div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Fecha Vencimiento</span>
+                    <p style="color: #8a8aaa; text-align: justify;">{{pagos2.vencimiento}}</p>
+                </div>
+			</div>
+        </div>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Valor a Pagar</span>
+                    <p style="color: #8a8aaa; text-align: justify;">{{pagos2.monto}}</p>
+                </div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Vecinos asociados al pago</span>
+                </div>
+			</div>
+		</div>	
+		<div class="row rowbottom" ng-repeat="pagosvecino in pagosvecinoslist">
+			<div class="col-md-4 col-sm-4 col-xs-4 topbottom20">
+	            <center>
+	              <img src="http://ihomeapp.net/imagenes/{{pagosvecino.vecinos.imagen}}" class="img-circle" alt="User Image">
+	            </center>
+	        </div>
+	        <div class="col-md-8 col-sm-8 col-xs-8 top10">
+                <p ng-if="(User.roles_id == 2)||(pagosvecino.vecinos.mostrar_info == '1')">
+                   {{pagosvecino.vecinos.usuarios.name}}<br>
+                   {{pagosvecino.vecinos.usuarios.email}}<br>
+                   Apartamento/Casa: {{pagosvecino.vecinos.apartamento}}<br>
+                   {{pagosvecino.vecinos.telefono}}<br>
+                   {{pagosvecino.vecinos.profesion}}<br>
+                </p>
+                <p ng-if="(User.roles_id == 3) && (pagosvecino.vecinos.mostrar_info == '0')">
+                	informacion de vecino privada
+                </p>
+                   
+            </div>
+		</div>	
+		<br><br>
+		<div class="row" ng-if="(User.roles_id == '2') && (pagos2.status == '0')">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <button class="btn btnbluelg btn-block top_10 transparente" ng-click="pagar(pagos2.id)">CONFIRMAR PAGO</button>
+          </div>
+        </div>	 
+        <br><br><br><br>
+	</ion-content>
+</ion-view>

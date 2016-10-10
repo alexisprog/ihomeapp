@@ -1,0 +1,256 @@
+<ion-view view-title="iHome">
+  <ion-content>
+  		<div ng-if="(User.roles_id == '2')">
+	  		<div class = "row row-inicio">
+			   <a class = "aperso col col-50" ng-click="reportes()" style="border-right: 1px solid #cfcfcf;">
+			   	<div style="position: relative;" >
+				  <div style="position: absolute; top: 10px; z-index: 99999999;"> 
+				  	<span ng-if="alertreportes != 0" class="label label-primary pull-right">{{alertreportes}}</span> 
+				  </div>
+				</div>		   	
+			   	<img src="img/App-Home-Reportar.png" style="width:120px; padding-top: 15px; z-index: -1;">
+			   	<br>
+			   	<p>Reportar Novedad</p>
+			   </a>
+			   <a class = "aperso col col-50" ng-click="pagos()">
+			   	<div style="position: relative;">
+				  <div style="position: absolute; top: 10px; z-index: 99999999;"> 
+				  <span ng-if="alertpagos != 0" class="label label-primary pull-right">{{alertpagos}}</span> </div>
+				</div>
+			   	<img src="img/App-Home-MisPagos.png" style="width:120px; padding-top: 15px; z-index: -1;">
+			   	<br>
+			   	<p>Mis Pagos</p>
+			   </a>
+			</div>  
+
+			<div class = "row row-inicio">
+			   <a class = "aperso col col-50" ng-click="noticias()" style="border-right: 1px solid #cfcfcf;">
+			   	<div style="position: relative;">
+				  <div style="position: absolute; top: 10px; z-index: 99999999;"> 
+				  	<span ng-if="alertnoticias != 0" class="label label-primary pull-right">{{alertnoticias}}</span> </div>
+				</div>
+			   	<img src="img/App-Home-Noticias.png" style="width:120px; padding-top: 25px; z-index: -1;">
+			   	<br>
+			   	<p>Noticias</p>
+			   </a>
+			   <a class = "aperso col col-50" ng-click="encuestas()">
+			   	<div style="position: relative;">
+				  <div style="position: absolute; top: 10px; z-index: 99999999;"> 
+				  	<span ng-if="alertencuetas != 0" class="label label-primary pull-right">{{alertencuetas}}</span> </div>
+				</div>
+			   	<img src="img/App-Home-Encuestas.png" style="width:120px; padding-top: 25px; z-index: -1;">
+			   	<br>
+			   	<p>Encuestas</p>
+			   </a>
+			</div> 
+
+			<div class = "row row-inicio">
+			   <a class = "aperso col col-50" ng-click="solicitudes()" style="border-right: 1px solid #cfcfcf;">
+			   	<div style="position: relative;">
+				  <div style="position: absolute; top: 10px; z-index: 99999999;"> 
+				  	<span ng-if="alertsolicitudes != 0" class="label label-primary pull-right">{{alertsolicitudes}}</span> </div>
+				</div>
+			   	<img src="img/App-Home-Solicitudes.png" style="width:120px; padding-top: 25px; z-index: -1;">
+			   	<br>
+			   	<p>Solicitudes</p>
+			   </a>
+			   <a class = "aperso col col-50" ng-click="inforesidencial()">
+			   <div style="position: relative;">
+				  <div style="position: absolute; top: 10px; z-index: 99999999;"> 
+				  	<span ng-if="alertinfo != 0" class="label label-primary pull-right">{{alertinfo}}</span> </div>
+				</div>
+			   	<img src="img/App-Home-InfoResidencial.png" style="width:120px; padding-top: 25px; z-index: -1;">
+			   	<br>
+			   	<p>Info Residencial</p>
+			   </a>
+			</div>  
+
+			<div class = "row row-inicio">
+			   <a class = "aperso col col-50" style="border-right: 1px solid #cfcfcf;" ng-click="servicios()">
+			   	<div style="position: relative;">
+				  <div style="position: absolute; top: 10px; z-index: 99999999;"> 
+				  	<span ng-if="alertservicios != 0" class="label label-primary pull-right">{{alertservicios}}</span> </div>
+				</div>
+			   	<img src="img/App-Home-Servicios.png" style="width:120px; padding-top: 25px; z-index: -1;">
+			   	<br>
+			   	<p>Servicios</p>
+			   </a>
+			   <a class = "aperso col col-50" ng-click="vecinos()">
+			   	<img src="img/App-Home-Vecinos.png" style="width:120px; padding-top: 25px; z-index: -1;">
+			   	<br>
+			   	<p>Vecinos</p>
+			   </a>
+			</div> 
+
+			<div class = "row row-inicio">
+			   <a class = "aperso col col-50" ng-click="porteros()" style="border-right: 1px solid #cfcfcf;">
+			   	<div style="position: relative;">
+				  <div style="position: absolute; top: 10px; z-index: 99999999;"> 
+				  	<span ng-if="alertporteria != 0" class="label label-primary pull-right">{{alertporteria}}</span> </div>
+				</div>
+			   	<img src="img/App-Home-Porteria.png" style="width:120px; padding-top: 25px; z-index: -1;">
+			   	<br>
+			   	<p>Porteria</p>
+			   </a>
+			   <a class = "aperso col col-50" ng-if="(User.roles_id == 2) || (User.roles_id == 4)" ng-click="administracion()">
+			   <div style="position: relative;">
+				  <div style="position: absolute; top: 10px; z-index: 99999999;"> 
+				  	<span ng-if="alertchat != 0" class="label label-primary pull-right">{{alertchat}}</span> </div>
+				</div>
+			   	<img src="img/App-Home-Administracion.png" style="width:120px; padding-top: 25px; z-index: -1;">
+			   	<br>
+			   	<p>Administracion</p>
+			   </a>
+			</div> 
+
+			<div class = "row row-inicio" ng-if="(User.roles_id == 2) || (User.roles_id == 4)" ng-click="personal()">
+			   <a class = "aperso col col-50" style="border-right: 1px solid #cfcfcf;" >
+			   	<img src="img/App-Home-PersonalPlanta.png" style="width:120px; padding-top: 25px; z-index: -1;">
+			   	<br>
+			   	<p>Personal de Planta</p>
+			   </a>
+			</div> 
+		</div>
+
+		<div ng-if="(User.roles_id == '3')">
+	  		<div class = "row row-inicio">
+			   <a class = "aperso col col-50" ng-click="mipropiedad()" style="border-right: 1px solid #cfcfcf;"> 
+			   	<img src="img/App-Home-MiPropiedad.png" style="width:115px; padding-top: 15px; z-index: -1;">
+			   	<br>
+			   	<p>Mi Propiedad</p>
+			   </a>
+
+			   <a class = "aperso col col-50" ng-click="reportes()" style="border-right: 1px solid #cfcfcf;">
+			   	<div style="position: relative;">
+				  <div style="position: absolute; top: 10px; z-index: 99999999;"> 
+				  	<span ng-if="alertreportes != 0" class="label label-primary pull-right">{{alertreportes}}</span> 
+				  </div>
+				</div>		   	
+			   	<img src="img/App-Home-Reportar.png" style="width:110px; padding-top: 15px; z-index: -1;">
+			   	<br>
+			   	<p>Reportar Novedad</p>
+			   </a>
+			</div>  
+
+			<div class = "row row-inicio">
+			   <a class = "aperso col col-50" ng-click="pagos()" style="border-right: 1px solid #cfcfcf;">
+			   	<div style="position: relative;">
+				  <div style="position: absolute; top: 10px; z-index: 99999999;"> 
+				  	<span ng-if="alertpagos != 0" class="label label-primary pull-right">{{alertpagos}}</span> 
+				  </div>
+				</div>
+			   	<img src="img/App-Home-MisPagos.png" style="width:120px; padding-top: 15px; z-index: -1;">
+			   	<br>
+			   	<p>Mis Pagos</p>
+			   </a>
+			   <a class = "aperso col col-50" ng-click="noticias()" style="border-right: 1px solid #cfcfcf;">
+			   	<div style="position: relative;">
+				  <div style="position: absolute; top: 10px; z-index: 99999999;"> 
+				  	<span ng-if="alertnoticias != 0" class="label label-primary pull-right">{{alertnoticias}}</span> 
+				  </div>
+				</div>
+			   	<img src="img/App-Home-Noticias.png" style="width:110px; padding-top: 25px; z-index: -1;">
+			   	<br>
+			   	<p>Noticias</p>
+			   </a>
+			</div> 
+
+			<div class = "row row-inicio">
+			   <a class = "aperso col col-50" ng-click="encuestas()" style="border-right: 1px solid #cfcfcf;">
+			   	<div style="position: relative;">
+				  <div style="position: absolute; top: 10px; z-index: 99999999;"> 
+				  	<span ng-if="alertencuetas != 0" class="label label-primary pull-right">{{alertencuetas}}</span> 
+				  </div>
+				</div>
+			   	<img src="img/App-Home-Encuestas.png" style="width:120px; padding-top: 25px; z-index: -1;">
+			   	<br>
+			   	<p>Encuestas</p>
+			   </a>
+			   <a class = "aperso col col-50" ng-click="solicitudes()" style="border-right: 1px solid #cfcfcf;">
+			   	<div style="position: relative;">
+				  <div style="position: absolute; top: 10px; z-index: 99999999;"> 
+				  	<span ng-if="alertsolicitudes != 0" class="label label-primary pull-right">{{alertsolicitudes}}</span> 
+				  </div>
+				</div>
+			   	<img src="img/App-Home-Solicitudes.png" style="width:120px; padding-top: 25px; z-index: -1;">
+			   	<br>
+			   	<p>Solicitudes</p>
+			   </a>
+			</div>  
+
+			<div class = "row row-inicio">
+			   <a class = "aperso col col-50" ng-click="inforesidencial()" style="border-right: 1px solid #cfcfcf;">
+			   <div style="position: relative;">
+				  <div style="position: absolute; top: 10px; z-index: 99999999;"> 
+				  	<span ng-if="alertinfo != 0" class="label label-primary pull-right">{{alertinfo}}</span> 
+				  </div>
+				</div>
+			   	<img src="img/App-Home-InfoResidencial.png" style="width:120px; padding-top: 25px; z-index: -1;">
+			   	<br>
+			   	<p>Info Residencial</p>
+			   </a>
+			   <a class = "aperso col col-50" style="border-right: 1px solid #cfcfcf;" ng-click="servicios()">
+			   	<div style="position: relative;">
+				  <div style="position: absolute; top: 10px; z-index: 99999999;"> 
+				  	<span ng-if="alertservicios != 0" class="label label-primary pull-right">{{alertservicios}}</span> 
+				  </div>
+				</div>
+			   	<img src="img/App-Home-Servicios.png" style="width:120px; padding-top: 25px; z-index: -1;">
+			   	<br>
+			   	<p>Servicios</p>
+			   </a>
+			</div> 
+
+			<div class = "row row-inicio">
+			   <a class = "aperso col col-50" ng-click="vecinos()" style="border-right: 1px solid #cfcfcf;">
+			   	<img src="img/App-Home-Vecinos.png" style="width:120px; padding-top: 25px; z-index: -1;">
+			   	<br>
+			   	<p>Vecinos</p>
+			   </a>
+			   <a class = "aperso col col-50" ng-click="porteros()" style="border-right: 1px solid #cfcfcf;">
+			   	<div style="position: relative;">
+				  <div style="position: absolute; top: 10px; z-index: 99999999;"> 
+				  	<span ng-if="alertporteria != 0" class="label label-primary pull-right">{{alertporteria}}</span> 
+				  </div>
+				</div>
+			   	<img src="img/App-Home-Porteria.png" style="width:120px; padding-top: 25px; z-index: -1;">
+			   	<br>
+			   	<p>Porteria</p>
+			   </a>
+			</div> 
+		</div>
+
+		<div ng-if="(User.roles_id == '4')">
+			<div class = "row row-inicio">
+			   <a class = "aperso col col-50" ng-click="porteros()" style="border-right: 1px solid #cfcfcf;">
+			   	<div style="position: relative;">
+				  <div style="position: absolute; top: 10px; z-index: 99999999;"> 
+				  	<span ng-if="alertporteria != 0" class="label label-primary pull-right">{{alertporteria}}</span> 
+				  </div>
+				</div>
+			   	<img src="img/App-Home-Porteria.png" style="width:120px; padding-top: 25px; z-index: -1;">
+			   	<br>
+			   	<p>Porteria</p>
+			   </a>
+			   <a class = "aperso col col-50" ng-click="administracion()">
+			   <div style="position: relative;">
+				  <div style="position: absolute; top: 10px; z-index: 99999999;"> 
+				  	<span ng-if="alertchat != 0" class="label label-primary pull-right">{{alertchat}}</span> 
+				  </div>
+				</div>
+			   	<img src="img/App-Home-Administracion.png" style="width:120px; padding-top: 25px; z-index: -1;">
+			   	<br>
+			   	<p>Administracion</p>
+			   </a>
+			</div> 
+
+			<div class = "row row-inicio" ng-click="personal()">
+			   <a class = "aperso col col-50" style="border-right: 1px solid #cfcfcf;" >
+			   	<img src="img/App-Home-PersonalPlanta.png" style="width:120px; padding-top: 25px; z-index: -1;">
+			   	<br>
+			   	<p>Personal de Planta</p>
+			   </a>
+			</div> 
+		</div>
+  </ion-content>
+</ion-view>

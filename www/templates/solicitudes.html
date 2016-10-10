@@ -1,0 +1,52 @@
+<ion-view view-title="Solicitudes">
+	<div class="bar bar-header bar-dark">
+        <button class="button button-icon button-clear ion-android-arrow-back" ui-sref="app.inicio">
+        </button>
+		<h1 class="title">Mis Solicitudes</h1>
+		<a class="button button-icon icon ion-android-add" ng-click="solicitudescreate()"></a>
+	</div>
+	<ion-content  class="has-header" padding="false">
+		<div class="row">
+            <a ng-click="solicitudescalendario()" class="btn btnorage btn-block">
+              <img src="public/dist/img/Calendar.png">
+            </a>
+        </div>
+		<div ng-repeat="solicitudes in solicitudeslist">
+	    <div class="row rowbottom" ng-if="((User.roles_id == 2) && (solicitudes.actividades.inmuebles_id == inmueble_id) || (User.id == solicitudes.users_id) && (solicitudes.actividades.inmuebles_id == inmueble_id))">
+	    	<div class="col-md-3 col-sm-3 col-xs-3 lefttop">
+                <div class="divblue" ng-if="solicitudes.status == '1'" style="height: 80px;">
+                  <img src="public/dist/img/Check.gif">
+                </div>
+                <div class="divred" ng-if="solicitudes.status == '2'" style="height: 80px;">
+                  <img src="public/dist/img/Close.gif">
+                </div>
+                <div class="divpurple" ng-if="solicitudes.status == '0'" style="height: 80px;">
+                  <img src="public/dist/img/Clock.png">
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-9 col-xs-9">
+            	<a ng-click="solicitudesedit(solicitudes.id)" ng-if="solicitudes.status == 0 && User.roles_id == 2">
+	        		<p style="color: #8a8aaa; text-align: justify;">
+                    {{solicitudes.actividades.nombre}}</br>
+                    {{solicitudes.usuarios.name}}</br>
+                    {{solicitudes.horainicio}} | {{solicitudes.horafinal}} | {{solicitudes.fecha}}</br>
+                    <div style="color: #8a8aaa;" ng-if="solicitudes.status == '1'">Aprobado</div>
+                    <div style="color: #8a8aaa;" ng-if="solicitudes.status == '2'">Rechazado</div>
+                    <div style="color: #8a8aaa;" ng-if="solicitudes.status == '0'">Pendiente</div>
+		            </p>
+	            </a>
+	            <div ng-if="(solicitudes.status != 0 && User.roles_id == 2) || User.roles_id == 3">
+	        		<p style="color: #8a8aaa; text-align: justify;">
+                    {{solicitudes.actividades.nombre}}</br>
+                    {{solicitudes.usuarios.name}}</br>
+                    {{solicitudes.horainicio}} | {{solicitudes.horafinal}} | {{solicitudes.fecha}}</br>
+                    <div style="color: #8a8aaa;" ng-if="solicitudes.status == '1'">Aprobado</div>
+                    <div style="color: #8a8aaa;" ng-if="solicitudes.status == '2'">Rechazado</div>
+                    <div style="color: #8a8aaa;" ng-if="solicitudes.status == '0'">Pendiente</div>
+		            </p>
+	            </div>
+            </div>        
+     	</div>
+     	</div>
+	</ion-content>
+</ion-view>

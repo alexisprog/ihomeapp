@@ -1,0 +1,102 @@
+<ion-view view-title="Bitacora Porteria">
+	<div class="bar bar-header bar-dark">
+        <button class="button button-icon button-clear ion-android-arrow-back" ui-sref="app.inicio">
+        </button>
+		<h1 class="title">Bitacora Porteria</h1>
+		<a ng-if="User.roles_id == '4'" class="button button-icon icon ion-android-add" ui-sref="reportesporteroscreate"></a>
+	</div>
+	<ion-content  class="has-header" padding="false">
+		<div ng-repeat="reportesportero in reportesporteroslist">
+		    <div class="row rowbottom" ng-if="reportesportero.porteros.inmuebles_id == inmueble_id">
+		        <div class="col-md-3 col-sm-3 col-xs-3 lefttop">
+		        	<div ng-if="User.roles_id == 4">
+		        		<div ng-if="(reportesportero.status == 0)&&(reportesportero.statusvecino == 0)" class="divorage" style="height:70px;">
+                          <img src="public/dist/img/Clock.png">
+                        </div>
+                        <div ng-if="(reportesportero.status == 1)&&(reportesportero.statusvecino == 0)" class="divblue" style="height:70px;">
+                          <img src="public/dist/img/Check.gif">
+                        </div>
+                        <div ng-if="(reportesportero.status == 0)&&(reportesportero.statusvecino == 1)" class="divorage" style="height:70px;">
+                          <img src="public/dist/img/Clock.png">
+                        </div>
+                        <div ng-if="(reportesportero.status == 1)&&(reportesportero.statusvecino == 1)" class="divblue" style="height:70px;">
+                          <img src="public/dist/img/Check.gif">
+                        </div>		        		
+		        	</div>
+		        	<div ng-if="User.roles_id == 3">
+		        		<div ng-if="(reportesportero.status == 0)&&(reportesportero.statusvecino == 0)" class="divorage" style="height:70px;">
+                          <img src="public/dist/img/Clock.png">
+                        </div>
+                        <div ng-if="(reportesportero.status == 0)&&(reportesportero.statusvecino == 1)" class="divblue" style="height:70px;">
+                          <img src="public/dist/img/Check.gif">
+                        </div>
+                        <div ng-if="(reportesportero.status == 1)&&(reportesportero.statusvecino == 0)" class="divorage" style="height:70px;">
+                          <img src="public/dist/img/Clock.png">
+                        </div>
+                        <div ng-if="(reportesportero.status == 1)&&(reportesportero.statusvecino == 1)" class="divblue" style="height:70px;">
+                          <img src="public/dist/img/Check.gif">
+                        </div>
+		        	</div>
+		        </div>
+		        <div class="col-md-9 col-sm-9 col-xs-9 top10">
+		        	<div ng-if="User.roles_id == 4">
+		        		<a ng-click="reportesporterosshow(reportesportero.id)" ng-if="(reportesportero.status == 0)&&(reportesportero.statusvecino == 0)" style="color: #000000;">
+		        		<b>{{reportesportero.vecinos.usuarios.name}}</b> <br>
+                        Apartamento {{reportesportero.vecinos.apartamento}} <br>
+                        Fecha: {{reportesportero.created_at | date : 'short' }}
+                        </a>
+		        		<a ng-click="reportesporterosshow(reportesportero.id)" ng-if="(reportesportero.status == 1)&&(reportesportero.statusvecino == 0)" style="color: #A9A9AB;">
+		        		<b>{{reportesportero.vecinos.usuarios.name}}</b> <br>
+                        Apartamento {{reportesportero.vecinos.apartamento}} <br>
+                        Fecha: {{reportesportero.created_at | date : 'short' }}
+                        </a>
+		        		<a ng-click="reportesporterosshow(reportesportero.id)" ng-if="(reportesportero.status == 0)&&(reportesportero.statusvecino == 1)" style="color: #000000;">
+		        		<b>{{reportesportero.vecinos.usuarios.name}}</b> <br>
+                        Apartamento {{reportesportero.vecinos.apartamento}} <br>
+                        Fecha: {{reportesportero.created_at | date : 'short' }}
+                        </a>
+		        		<a ng-click="reportesporterosshow(reportesportero.id)" ng-if="(reportesportero.status == 1)&&(reportesportero.statusvecino == 1)" style="color: #A9A9AB;">
+		        		<b>{{reportesportero.vecinos.usuarios.name}}</b> <br>
+                        Apartamento {{reportesportero.vecinos.apartamento}} <br>
+                        Fecha: {{reportesportero.created_at | date : 'short' }}
+                        </a>
+		        	</div>
+		        	<div ng-if="User.roles_id == 3">
+		        		<a ng-click="reportesporterosshow(reportesportero.id)" ng-if="(reportesportero.status == 0)&&(reportesportero.statusvecino == 0)" style="color: #000000;">
+		        		<b>Reporte: {{reportesportero.categoria}}</b> 
+		                <span ng-if="reportesportero.categoria == 'recibos'">
+		                	{{reportesportero.subcategoria}} 
+		                </span> 
+		                <br>
+		                {{reportesportero.created_at | date : 'short' }}
+		                </a>
+		        		<a ng-click="reportesporterosshow(reportesportero.id)" ng-if="(reportesportero.status == 0)&&(reportesportero.statusvecino == 1)" style="color: #A9A9AB;">
+		        		<b>Reporte: {{reportesportero.categoria}}</b> 
+		                <span ng-if="reportesportero.categoria == 'recibos'">
+		                	{{reportesportero.subcategoria}} 
+		                </span> 
+		                <br>
+		                {{reportesportero.created_at | date : 'short' }}
+		                </a>
+		        		<a ng-click="reportesporterosshow(reportesportero.id)" ng-if="(reportesportero.status == 1)&&(reportesportero.statusvecino == 0)" style="color: #000000;">
+		        		<b>Reporte: {{reportesportero.categoria}}</b> 
+		                <span ng-if="reportesportero.categoria == 'recibos'">
+		                	{{reportesportero.subcategoria}} 
+		                </span> 
+		                <br>
+		                {{reportesportero.created_at | date : 'short' }}
+		                </a>
+		        		<a ng-click="reportesporterosshow(reportesportero.id)" ng-if="(reportesportero.status == 1)&&(reportesportero.statusvecino == 1)" style="color: #A9A9AB;">		        		
+		                <b>Reporte: {{reportesportero.categoria}}</b> 
+		                <span ng-if="reportesportero.categoria == 'recibos'">
+		                	{{reportesportero.subcategoria}} 
+		                </span> 
+		                <br>
+		                {{reportesportero.created_at | date : 'short' }}
+		                </a>
+		        	</div>                
+	            </div>       
+	     	</div>
+     	</div>
+	</ion-content>
+</ion-view>

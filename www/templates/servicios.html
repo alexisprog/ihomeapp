@@ -1,0 +1,45 @@
+<ion-view view-title="Servicios">
+	<div class="bar bar-header bar-dark">
+        <button class="button button-icon button-clear ion-android-arrow-back" ui-sref="app.inicio">
+        </button>
+		<h1 class="title">Servicios</h1>
+		<a class="button button-icon icon ion-android-add" ui-sref="servicioscreate"></a>
+	</div>
+	<ion-content  class="has-header" padding="false">
+	    <div class="row rowbottom" ng-repeat="servicio in servicioslist">
+	    	<div class="col-md-3 col-sm-3 col-xs-3 lefttop">
+            <div class="divblue" ng-if="servicio.tipo == '0'">
+              <img src="public/dist/img/Check.gif">
+            </div>
+            <div class="divpurple" ng-if="servicio.tipo == '1'" style="height: 65px; margin-top: -31px;">
+              <img src="public/dist/img/Edit.png">
+            </div>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-8 top10" ng-if="servicio.tipo == '0'">
+            	<a ng-click="serviciosedit(servicio.id)">
+	        		<p style="color: #8a8aaa; text-align: justify;">
+		            	{{servicio.titulo}} <br>
+		            	{{servicio.updated_at}}
+		            </p>
+	            </a>
+            </div>
+            <div class="col-md-8 col-sm-8 col-xs-8 top10" ng-if="servicio.tipo == '1'">
+              <a ng-click="serviciosshow(servicio.id)">
+              <p style="color: #8a8aaa; text-align: justify;">
+                  {{servicio.titulo}} <br>
+                  {{servicio.updated_at}}
+                </p>
+              </a>
+            </div>
+            <div class="col-md-1 col-sm-1 col-xs-1 top10">
+            <div ng-if="servicio.status == '2'">
+              <div style="position: relative;">
+                  <div style="position: absolute;"> 
+                    <span class="label label-primary pull-right"><img style="height: 10px;" src="public/dist/img/Email.png"></span> 
+                  </div>
+              </div>
+            </div>
+            </div>      
+     	</div>
+	</ion-content>
+</ion-view>

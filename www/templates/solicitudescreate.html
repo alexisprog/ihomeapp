@@ -1,0 +1,46 @@
+<ion-view view-title="Solicitudes">
+	<div class="bar bar-header bar-dark">
+        <button class="button button-icon button-clear ion-android-arrow-back" ng-click="solicitudes()">
+        </button>
+		<h1 class="title">Agregar Solicitud</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+		<form name="myForm" novalidate>
+		<div pickadate ng-model="data.fecha" ng-required="true"></div>
+		<span style="color:gray;">&nbsp;&nbsp;* Seleccione una fecha en el calendario</span>
+		<br>
+		<br>
+		<div class="form-group rowbottom">
+	        <span>Actividad</span>
+	        <select ng-model="data.actividades_id" class="form-control input" ng-required="true">
+	            <option ng-repeat="actividades in actividadeslist" ng-value="{{actividades.id}}">
+	            	{{actividades.nombre}}
+	            </option>
+	        </select>
+	    </div>
+	    <span style="color:gray;">&nbsp;&nbsp;* Actividad es requerido</span>
+		<br>
+		<br>
+	    <div class="form-group rowbottom">
+            <span>Descripci&oacute;n</span>
+            <textarea ng-maxlength="200" ng-attr-rows="{{row || '5'}}" ng-model="data.descripcion"   placeholder="Describa el motivo de la solicitud" class="form-control input" ng-required="true"></textarea>
+        </div>
+         <span style="color:gray;">&nbsp;&nbsp;* Descripcion es requerido</span>
+		<br>
+		<br>
+        <div class="form-group rowbottom">
+          <button class="button button-block button-positive overflowShow" ng-click="openTimePicker1()"> Hora Inicio {{horainicio}} </button>
+        </div>
+        <div class="form-group rowbottom">
+          <button class="button button-block button-positive overflowShow" ng-click="openTimePicker2()"> Hora Fin {{horafin}} </button>
+        </div>
+		
+		<div class="padding">
+            <button type="submit" ng-click="add()" class="button button-block button-dark" ng-disabled="myForm.$invalid">
+            	<i class="icon ion-android-done"></i>
+            </button>
+        </div>
+
+		</form>
+	</ion-content>
+</ion-view>

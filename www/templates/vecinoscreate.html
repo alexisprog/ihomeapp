@@ -1,0 +1,70 @@
+<ion-view view-title="Vecinos">
+	<div class="bar bar-header bar-dark">
+        <a class="button button-icon button-clear ion-android-arrow-back" ng-click="vecinos()">
+        </a>
+		<h1 class="title">Registrar Vecino</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+	<form ng-submit="add()" name="myForm" novalidate>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Nombre Apellido</span>
+                    <input ng-model="data.name" type="text" class="form-control input" ng-required="true">
+                </div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Cedula</span>
+                    <input ng-model="data.cedula" type="number" class="form-control input" ng-required="true">
+                </div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Email</span>
+                    <input ng-model="data.email" type="email" class="form-control input" ng-required="true">
+                </div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Apartamento</span>
+                    <input ng-model="data.apartamento" type="text" class="form-control input" ng-required="true">
+                </div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Telefono</span>
+                    <input ng-model="data.telefono" type="number" class="form-control input" ng-required="true">
+                </div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Profesion</span>
+                    <input ng-model="data.profesion" type="text" class="form-control input" ng-required="true">
+                </div>
+			</div>
+		</div>
+        
+		<div class="padding">
+            <button type="submit" class="button button-block button-dark" ng-disabled="myForm.$invalid">
+            	<i class="icon ion-android-done"></i>
+            </button>
+        </div>
+	</form>
+	</ion-content>
+</ion-view>

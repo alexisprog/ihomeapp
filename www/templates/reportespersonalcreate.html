@@ -1,0 +1,95 @@
+<ion-view view-title="Reportes Personal">
+	<div class="bar bar-header bar-dark">
+        <a class="button button-icon button-clear ion-android-arrow-back" ui-sref="app.inicio">
+        </a>
+		<h1 class="title">Personal de Planta</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+		<form ng-submit="add()" name="myForm" novalidate>
+
+    <div class="row rowbottom">
+      <div ng-if="tipo != 'aseo'" ng-click="cambio('aseo')" class="col-md-6 col-sm-6 col-xs-6 top10 divgris" style="height: 90px;">
+          <center>
+              <br>
+              <p style="color:#FFF;">Aseo</p>
+          </center>
+      </div>
+      <div  ng-if="tipo == 'aseo'" class="col-md-6 col-sm-6 col-xs-6 top10 divorage" style="height: 90px;">
+          <center>
+              <br>
+              <p style="color:#FFF;">Aseo</p>
+          </center>
+      </div>
+
+      <div ng-if="tipo != 'seguridad'" ng-click="cambio('seguridad')" class="col-md-6 col-sm-6 col-xs-6 top10 divgris" style="height: 90px;">
+          <center>
+              <br>
+              <p style="color:#FFF;">Seguridad</p>
+          </center>
+      </div>
+      <div ng-if="tipo == 'seguridad'" class="col-md-6 col-sm-6 col-xs-6 top10 divorage" style="height: 90px;">
+          <center>
+              <br>
+              <p style="color:#FFF;">Seguridad</p>
+          </center>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12 top20">
+        <div class="form-group rowbottom">
+            <span>Cedula del Personal de Planta</span>
+            <input type="text" placeholder="ejemplo: 123456789" ng-model="data.cedula" class="form-control input">
+        </div>
+      </div>
+    </div>
+
+    <div class="row rowbottom">
+      <div ng-if="accion != 'entrando'" ng-click="cambio2('entrando')" class="col-md-6 col-sm-6 col-xs-6 top10 divgris" style="height: 90px;">
+          <center>
+              <br>
+              <p style="color:#FFF;">Entrando</p>
+          </center>
+      </div>
+      <div  ng-if="accion == 'entrando'" class="col-md-6 col-sm-6 col-xs-6 top10 divorage" style="height: 90px;">
+          <center>
+              <br>
+              <p style="color:#FFF;">Entrando</p>
+          </center>
+      </div>
+
+      <div ng-if="accion != 'saliendo'" ng-click="cambio2('saliendo')" class="col-md-6 col-sm-6 col-xs-6 top10 divgris" style="height: 90px;">
+          <center>
+              <br>
+              <p style="color:#FFF;">Saliendo</p>
+          </center>
+      </div>
+      <div ng-if="accion == 'saliendo'" class="col-md-6 col-sm-6 col-xs-6 top10 divorage" style="height: 90px;">
+          <center>
+              <br>
+              <p style="color:#FFF;">Saliendo</p>
+          </center>
+      </div>
+    </div>
+
+    <div class="padding">
+            <span>Debe tomar una foto del personal</span>
+            <center>
+            <img ng-src="{{photo}}" ng-model="data.imagen" ng-required="true">
+        <a class="button button-block button-positive" ng-click="getPhoto('camera')">
+          <i class="icon ion-camera"></i>
+        </a>
+        </center>
+    </div>
+
+    <div class="padding">
+            <button type="submit" class="button button-block button-dark" ng-disabled="myForm.$invalid">
+              <i class="icon ion-android-done"></i>
+            </button>
+        </div>  
+
+    </form>
+    <br><br><br><br>
+	</ion-content>
+</ion-view>

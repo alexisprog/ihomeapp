@@ -1,0 +1,47 @@
+<ion-view view-title="Noticias">
+	<div class="bar bar-header bar-dark">
+        <a class="button button-icon button-clear ion-android-arrow-back" ng-click="noticias()">
+        </a>
+		<h1 class="title">Crear Noticia</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+	<form ng-submit="add()" name="myForm" novalidate>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Titulo de la Noticia</span>
+                    <input ng-model="data.titulo" type="text" class="form-control input" ng-required="true">
+                </div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Descripci&oacute;n</span>
+                    <textarea class="form-control input"  height="80px" ng-required="true" ng-model="data.descripcion" placeholder="Ingrese descripcion"></textarea>
+                </div>
+			</div>
+		</div>
+
+		
+		<div class="padding">
+            <span>Imagen</span>
+            <center>
+            <img ng-src="{{photo}}" ng-model="data.imagen">
+    		<a class="button button-block button-positive" ng-click="getPhoto('camera')">
+		    	<i class="icon ion-camera"></i>
+		    </a>
+    		<a class="button button-block button-dark" ng-click="getPhoto('library')">
+		    	<i class="icon ion-images"></i>
+		    </a>
+		    </center>
+		</div>
+        
+		<div class="padding">
+            <button type="submit" class="button button-block button-dark" ng-disabled="myForm.$invalid">
+            	<i class="icon ion-android-done"></i>
+            </button>
+        </div>
+	</form>
+	</ion-content>
+</ion-view>

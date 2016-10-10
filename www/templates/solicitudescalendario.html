@@ -1,0 +1,28 @@
+<ion-view view-title="Solicitudes">
+	<div class="bar bar-header bar-dark">
+        <button class="button button-icon button-clear ion-android-arrow-back" ng-click="solicitudes()">
+        </button>
+		<h1 class="title">Ver Calendario</h1>
+		<a class="button button-icon icon ion-android-add" ng-click="solicitudescreate()"></a>
+	</div>
+	<ion-content  class="has-header" padding="false">
+		<div pickadate ng-model="date" ng-click="mostrar(date)"></div>
+		<br>
+		<div class="col-md-12 col-sm-12 col-xs-12 divgray" ng-if="eventoslist.length === 0"> No hay solicitudes para la fecha </div>
+
+		<div class="col-md-12 col-sm-12 col-xs-12 divgray" ng-if="eventoslist.length > 0"> Lista de Solicitudes </div>
+
+		<div class="col-md-12 col-sm-12 col-xs-12 top20" ng-repeat="eventos in eventoslist">
+			<p style="color: #8a8aaa;">
+			Vecino: {{eventos.name}}</br>
+			Actividad: {{eventos.nombre}}</br>
+			Descripcion: {{eventos.descripcion}}</br>
+			{{eventos.horainicio}} | {{eventos.horafinal}} | {{eventos.fecha}}</br>
+			<div style="color: #8a8aaa;" ng-if="eventos.status == '1'">Status: Aprobado</div>
+            <div style="color: #8a8aaa;" ng-if="eventos.status == '2'">Status: Rechazado</div>
+            <div style="color: #8a8aaa;" ng-if="eventos.status == '0'">Status: Pendiente</div>
+			</p>
+			<hr>
+        </div>
+	</ion-content>
+</ion-view>

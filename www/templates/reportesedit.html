@@ -1,0 +1,81 @@
+<ion-view view-title="Reportes Daños">
+	<div class="bar bar-header bar-dark">
+        <a class="button button-icon button-clear ion-android-arrow-back" ng-click="reportes()">
+        </a>
+		<h1 class="title">Ver Reporte</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Titulo del Reporte</span>
+                    <p style="color: #8a8aaa; text-align: justify;">{{reportesdanos2.titulo}}</p>
+                </div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Descripci&oacute;n del problema</span>
+                    <p style="color: #8a8aaa;" ng-bind-html="reportesdanos2.descripcion"></p>
+                </div>
+			</div>
+		</div>		
+		<div class="padding">
+            <center>
+            <img style="width: 100%;" src="http://ihomeapp.net/imagenes/{{reportesdanos2.imagen}}">
+		    </center>
+		</div>   
+
+		 <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="box box-success direct-chat direct-chat-success">
+              <div class="box-footer">
+                  <div class="input-group">
+                    <input type="text" ng-model="resp" value="" placeholder="Escriba un mensaje..." class="form-control"></input>
+                    <span class="input-group-btn">
+                      <a class="btn btn-success btn-flat" ng-click="addResp(resp, reportesdanos2.id)">Send</a>
+                    </span>
+                  </div>
+              </div><!-- /.box-footer-->
+              <div class="box-body">
+             
+                <div class="direct-chat-messages">
+
+                <div ng-show="!respuestasedit.length" class="well text-center">No existen respuestas.</div>
+
+                <div ng-repeat="respuesta in respuestasedit">
+
+                	<div ng-show="respuesta.usuarios.roles_id == '2'" class="direct-chat-msg">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-left">{{ respuesta.usuarios.name }}</span>
+                        <span class="direct-chat-timestamp pull-right">{{respuesta.updated_at | date : 'short' }}</span>
+                      </div> 
+                      <div class="direct-chat-text">
+                        {{ respuesta.respuesta }}
+                      </div>
+                    </div>
+
+                    <div ng-show="respuesta.usuarios.roles_id == '3'" class="direct-chat-msg right">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-right">{{ respuesta.usuarios.name }}</span>
+                        <span class="direct-chat-timestamp pull-left">{{respuesta.updated_at | date : 'short' }}</span>
+                      </div>
+                      <div class="direct-chat-text">
+                        {{ respuesta.respuesta }}
+                      </div>
+                    </div> 
+                	
+                </div>
+
+                </div><!--/.direct-chat-messages-->
+
+                
+                </div><!-- /.box-body -->
+                
+              </div><!--/.direct-chat -->
+            </div>
+          </div>
+          <br><br><br><br><br><br>
+	</ion-content>
+</ion-view>

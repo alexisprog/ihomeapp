@@ -1,0 +1,48 @@
+<ion-view view-title="Mi Propiedad">
+	<div class="bar bar-header bar-dark">
+        <button class="button button-icon button-clear ion-android-arrow-back" ui-sref="app.inicio">
+        </button>
+		<h1 class="title">Informacion de Propiedad</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+		<form ng-submit="add()" name="myForm" novalidate>
+		<div class="row">
+		<div class="rowbottom">
+	        <div class="col-md-6 col-sm-6 col-xs-6 top20">
+	        <i class="fa fa-circle-thin"></i> AVALUO DE PRECIO
+	        </div>
+	        <div class="col-md-3 col-sm-3 col-xs-3 top20">
+	        	<input type="text" ng-required="true" placeholder="100"  ng-model="data.avaluo" class="form-control">
+	        </div>
+	        <div class="col-md-3 col-sm-3 col-xs-3 left-20 top20">
+	            <span>MILLONES</span>
+	        </div>	        
+        </div>
+        </div>
+			
+
+		<div class="row">
+			<div class="rowbottom">
+	            <div class="col-md-6 col-sm-6 col-xs-6 top20">
+	            	<i class="fa fa-circle-thin"></i> AÑOS DE CONSTRUCCÍON
+	            </div>
+	            <div class="col-md-3 col-sm-3 col-xs-3 top20">
+	            	<input type="text" ng-required="true" placeholder="5" ng-model="data.construccion" class="form-control">
+	            </div>
+	            <div class="col-md-3 col-sm-3 col-xs-3 left-20 top20">
+	                <span>AÑOS</span>
+	            </div>
+            </div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12 top20">
+              * Ingrese los datos de Avaluo de Precio, Años de Construccion y Registre, luego podra subir los planos y escrituras de su propiedad.
+            </div>
+		</div>
+		<br>
+        <center>
+        <button type="submit" ng-disabled="myForm.$invalid" class="btn btncircle" ><img  src="public/dist/img/Edit.png" ></button>
+        </center>
+
+	</ion-content>
+</ion-view>

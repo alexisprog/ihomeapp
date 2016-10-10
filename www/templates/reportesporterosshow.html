@@ -1,0 +1,148 @@
+<ion-view view-title="Reportes Porteria">
+	<div class="bar bar-header bar-dark">
+        <a class="button button-icon button-clear ion-android-arrow-back" ng-click="porteros()">
+        </a>
+		<h1 class="title">Ver Reporte</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+		
+    <div class="row rowbottom">
+      <div  ng-if="reportesporteros2list.categoria == 'recibos'" class="col-md-3 col-sm-3 col-xs-3 top10 divpurple" style="height: 90px;">
+        <img style="height: 36px;" src="public/dist/img/iconrecibos.png">
+        <center>
+          <p style="color:#FFF;">Recibos</p>
+        </center>
+      </div>
+      <div ng-if="reportesporteros2list.categoria != 'recibos'" id="cate11" class="col-md-3 col-sm-3 col-xs-3 top10 divorage" style="height: 90px;">
+        <img style="height: 36px;" src="public/dist/img/iconrecibos.png">
+        <center>
+          <p style="color:#FFF;">Recibos</p>
+        </center>
+      </div>
+
+      <div ng-if="reportesporteros2list.categoria == 'visitas'" class="col-md-3 col-sm-3 col-xs-3 top10 divpurple" style="height: 90px;">
+        <img style="height: 36px;" src="public/dist/img/iconVisitas.png" style="margin-top:16px;">
+        <center>
+          <p style="color:#FFF;">Visitas</p>
+        </center>
+      </div>
+      <div  ng-if="reportesporteros2list.categoria != 'visitas'" class="col-md-3 col-sm-3 col-xs-3 top10 divorage" style="height: 90px;">
+        <img style="height: 36px;" src="public/dist/img/iconVisitas.png" style="margin-top:16px;">
+        <center>
+          <p style="color:#FFF;">Visitas</p>
+        </center>
+      </div>
+
+      <div ng-if="reportesporteros2list.categoria == 'paquetes'" class="col-md-3 col-sm-3 col-xs-3 top10 divpurple" style="height: 90px;">
+      <img style="height: 36px;" src="public/dist/img/iconpaquete.png" >
+        <center>
+          <p style="color:#FFF;">Paquete</p>
+        </center>
+      </div>
+
+      <div ng-if="reportesporteros2list.categoria != 'paquetes'" class="col-md-3 col-sm-3 col-xs-3 top10 divorage" style="height: 90px;">
+        <img style="height: 36px;" src="public/dist/img/iconpaquete.png" >
+        <center>
+          <p style="color:#FFF;">Paquete</p>
+        </center>
+      </div>
+
+      <div ng-if="reportesporteros2list.categoria == 'novedades'" class="col-md-3 col-sm-3 col-xs-3 top10 divpurple" style="height: 90px;">
+      <img style="height: 36px;" src="public/dist/img/iconnovedades.png" >
+        <center>
+          <p style="color:#FFF;">Novedad</p>
+        </center>
+      </div>
+      <div ng-if="reportesporteros2list.categoria != 'novedades'" class="col-md-3 col-sm-3 col-xs-3 top10 divorage" style="height: 90px;">   
+        <img style="height: 36px;" src="public/dist/img/iconnovedades.png" >
+        <center>
+          <p style="color:#FFF;">Novedad</p>
+        </center>
+      </div>
+    </div>
+
+    <div class="row" ng-if="reportesporteros2list.categoria == 'recibos'" >
+        <div class="col-md-12 col-sm-12 col-xs-12 top10">
+        <div class="form-group rowbottom">
+        <span>Tipo de Recibo</span>
+        <p class="lblblack">{{reportesporteros2list.subcategoria}}</p>
+        </div>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12 top10">
+      <div class="form-group rowbottom">
+      <p class="lblblack">Apto {{reportesporteros2list.vecinos.apartamento}} - {{reportesporteros2list.vecinos.usuarios.name}}</p>
+      </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12 top10">
+      <div class="form-group rowbottom">
+      <span>Descripci&oacute;n del Reporte</span>
+      <p class="lblblack" ng-bind-html="reportesporteros2list.descripcion"></p>
+      </div>
+      </div>
+    </div>
+
+    <div class="padding">
+            <center>
+            <img style="width: 100%;" src="http://ihomeapp.net/imagenes/{{reportesporteros2list.imagen}}">
+        </center>
+    </div>  
+
+    <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="box box-success direct-chat direct-chat-success">
+              <div class="box-footer">
+                  <div class="input-group">
+                    <input type="text" ng-model="resp" value="" placeholder="Escriba un mensaje..." class="form-control"></input>
+                    <span class="input-group-btn">
+                      <a class="btn btn-success btn-flat" ng-click="addResp(resp, reportesporteros2list.id)">Send</a>
+                    </span>
+                  </div>
+              </div><!-- /.box-footer-->
+              <div class="box-body">
+             
+                <div class="direct-chat-messages">
+
+                <div ng-show="!respuestasedit.length" class="well text-center">No existen respuestas.</div>
+
+                <div ng-repeat="respuesta in respuestasedit">
+
+                  <div ng-show="respuesta.usuarios.roles_id == '4'" class="direct-chat-msg">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-left">{{ respuesta.usuarios.name }}</span>
+                        <span class="direct-chat-timestamp pull-right">{{respuesta.updated_at | date : 'short' }}</span>
+                      </div> 
+                      <div class="direct-chat-text">
+                        {{ respuesta.respuesta }}
+                      </div>
+                    </div>
+
+                    <div ng-show="respuesta.usuarios.roles_id == '3'" class="direct-chat-msg right">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-right">{{ respuesta.usuarios.name }}</span>
+                        <span class="direct-chat-timestamp pull-left">{{respuesta.updated_at | date : 'short' }}</span>
+                      </div>
+                      <div class="direct-chat-text">
+                        {{ respuesta.respuesta }}
+                      </div>
+                    </div> 
+                  
+                </div>
+
+                </div><!--/.direct-chat-messages-->
+
+                
+                </div><!-- /.box-body -->
+                
+              </div><!--/.direct-chat -->
+            </div>
+          </div>
+
+    <br><br><br><br><br><br>
+	</ion-content>
+</ion-view>

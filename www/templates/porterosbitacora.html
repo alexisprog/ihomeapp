@@ -1,0 +1,42 @@
+<ion-view view-title="Porteros">
+	<div class="bar bar-header bar-dark">
+        <button class="button button-icon button-clear ion-android-arrow-back" ng-click="porteros()">
+        </button>
+		<h1 class="title">Bitacora Porteria</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12 top10">
+            <form ng-submit="add()" name="myForm" novalidate>
+            <div class="form-group rowbottom">
+            <span>Email de Empresa Segurdad</span>
+            <input type="email" ng-required="true"  ng-model="data.email" placeholder="Ingrese correo electronico" class="form-control input">
+            </div>
+            <div class="padding">
+	            <button type="submit" class="button button-block button-dark" ng-disabled="myForm.$invalid">
+	            	<i class="icon ion-android-mail"></i>
+	            </button>
+	        </div>
+            </form>
+            </div>
+        </div>
+
+		<div ng-repeat="reportesportero in reportesporteroslist">
+		    <div class="row rowbottom" ng-if="reportesportero.porteros.inmuebles_id == inmueble_id">
+		        <div class="col-md-12 col-sm-12 col-xs-12 top10">
+		        	<p>
+		        	<b>{{reportesportero.vecinos.usuarios.name}}</b><br>
+	                Apartamento {{reportesportero.vecinos.apartamento}}<br>
+	                Reporte: {{reportesportero.categoria}} 
+	                <span ng-if="reportesportero.categoria == 'recibos'">
+	                	{{reportesportero.subcategoria}} 
+	                </span> 
+	                <br>
+	                {{reportesportero.created_at | date : 'short' }}
+	                </p>	                   
+	            </div>       
+	     	</div>
+     	</div>
+	</ion-content>
+</ion-view>

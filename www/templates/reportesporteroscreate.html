@@ -1,0 +1,123 @@
+<ion-view view-title="Reportes Porteria">
+	<div class="bar bar-header bar-dark">
+        <a class="button button-icon button-clear ion-android-arrow-back" ng-click="reportesporteros()">
+        </a>
+		<h1 class="title">Crear Reporte</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+		<form ng-submit="add()" name="myForm" novalidate>
+    <div class="row rowbottom">
+      <div  ng-if="categoria == 'recibos'" class="col-md-3 col-sm-3 col-xs-3 top10 divpurple" style="height: 90px;">
+        <img style="height: 36px;" src="public/dist/img/iconrecibos.png">
+        <center>
+          <p style="color:#FFF;">Recibos</p>
+        </center>
+      </div>
+      <div ng-if="categoria != 'recibos'" ng-click="cambio('recibos')" class="col-md-3 col-sm-3 col-xs-3 top10 divorage" style="height: 90px;">
+        <img style="height: 36px;" src="public/dist/img/iconrecibos.png">
+        <center>
+          <p style="color:#FFF;">Recibos</p>
+        </center>
+      </div>
+
+      <div ng-if="categoria == 'visitas'" class="col-md-3 col-sm-3 col-xs-3 top10 divpurple" style="height: 90px;">
+        <img style="height: 36px;" src="public/dist/img/iconVisitas.png" style="margin-top:16px;">
+        <center>
+          <p style="color:#FFF;">Visitas</p>
+        </center>
+      </div>
+      <div  ng-if="categoria != 'visitas'" ng-click="cambio('visitas')" class="col-md-3 col-sm-3 col-xs-3 top10 divorage" style="height: 90px;">
+        <img style="height: 36px;" src="public/dist/img/iconVisitas.png" style="margin-top:16px;">
+        <center>
+          <p style="color:#FFF;">Visitas</p>
+        </center>
+      </div>
+
+      <div ng-if="categoria == 'paquetes'" class="col-md-3 col-sm-3 col-xs-3 top10 divpurple" style="height: 90px;">
+      <img style="height: 36px;" src="public/dist/img/iconpaquete.png" >
+        <center>
+          <p style="color:#FFF;">Paquete</p>
+        </center>
+      </div>
+
+      <div ng-if="categoria != 'paquetes'" ng-click="cambio('paquetes')" class="col-md-3 col-sm-3 col-xs-3 top10 divorage" style="height: 90px;">
+        <img style="height: 36px;" src="public/dist/img/iconpaquete.png" >
+        <center>
+          <p style="color:#FFF;">Paquete</p>
+        </center>
+      </div>
+
+      <div ng-if="categoria == 'novedades'" class="col-md-3 col-sm-3 col-xs-3 top10 divpurple" style="height: 90px;">
+      <img style="height: 36px;" src="public/dist/img/iconnovedades.png" >
+        <center>
+          <p style="color:#FFF;">Novedad</p>
+        </center>
+      </div>
+      <div ng-if="categoria != 'novedades'" ng-click="cambio('novedades')" class="col-md-3 col-sm-3 col-xs-3 top10 divorage" style="height: 90px;">   
+        <img style="height: 36px;" src="public/dist/img/iconnovedades.png" >
+        <center>
+          <p style="color:#FFF;">Novedad</p>
+        </center>
+      </div>
+    </div>
+
+    <div class="row" ng-if="categoria == 'recibos'" >
+        <div class="col-md-12 col-sm-12 col-xs-12 top10">
+        <div class="form-group rowbottom">
+        <span>Tipo de Recibo</span>
+          <select ng-model="data.subcategoria">
+            <option value="Agua" ng-selected="true">Agua</option>
+            <option value="Luz">Luz</option>
+            <option value="Telefono">Teléfono</option>
+            <option value="Internet">Internet</option>
+            <option value="Gas">Gas</option>
+            <option value="Banco">Banco</option>
+            <option value="Carta">Carta</option>
+          </select>
+        </div>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12 top10">
+      <div class="form-group rowbottom">
+      <span>Apartamentos</span>
+        <select  ng-model="data.vecinos_id" ng-required="true">
+            <option ng-repeat="vecino in vecinoslist" value="{{vecino.id}}">{{vecino.apartamento}} - {{vecino.usuarios.name}}</option>
+        </select>
+      </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="form-group rowbottom">
+                    <span>Descripci&oacute;n del reporte</span>
+                    <textarea ng-model="data.descripcion" class="form-control input"></textarea>
+                </div>
+      </div>
+    </div>
+
+    <div class="padding">
+            <span>Imagen del Reporte</span>
+            <center>
+            <img ng-src="{{photo}}" ng-model="data.imagen">
+        <a class="button button-block button-positive" ng-click="getPhoto('camera')">
+          <i class="icon ion-camera"></i>
+        </a>
+        <a class="button button-block button-dark" ng-click="getPhoto('library')">
+          <i class="icon ion-images"></i>
+        </a>
+        </center>
+    </div>
+
+    <div class="padding">
+            <button type="submit" class="button button-block button-dark" ng-disabled="myForm.$invalid">
+              <i class="icon ion-android-done"></i>
+            </button>
+        </div>  
+
+    </form>
+    <br><br><br><br>
+	</ion-content>
+</ion-view>

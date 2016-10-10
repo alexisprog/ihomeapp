@@ -1,0 +1,136 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content>
+    <ion-nav-bar class="bar-dark">
+    <!--
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      -->
+
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+      <ion-nav-buttons side="right">
+        <button class="button button-clear">
+         <img src="public/dist/img/Logomini.jpg" style="width: 32px;">
+        </button>
+
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left">
+    <ion-content>
+      <ion-list>
+        <span ng-if="User.roles_id == '3'" >
+          <ion-item class="item-menu item-avatar" menu-close ng-click="perfil()">
+            <img src="http://ihomeapp.net/imagenes/{{Vecinos.imagen}}">
+            {{User.email}} <br>
+            {{inmueble_nombre}}
+            <p>Editar Perfil</p>
+          </ion-item>
+        </span>
+        <span ng-if="User.roles_id == '2'">
+          <ion-item class="item-menu item-avatar">
+            <img src="http://ihomeapp.net/imagenes/{{inmueble_imagen}}">
+            {{User.email}} <br>
+            {{inmueble_nombre}}
+          </ion-item>
+        </span> 
+        <span ng-if="User.roles_id == '4'">
+          <ion-item class="item-menu item-avatar">
+            <img src="http://ihomeapp.net/imagenes/{{inmueble_imagen}}">
+            {{User.email}} <br>
+            Porteria - {{inmueble_nombre}}
+          </ion-item>
+        </span> 
+
+        <ion-item class="item-menu" style="font-size: 18px;" menu-close ng-click="cambiarpassword()" >
+            Cambiar Password
+        </ion-item>
+
+
+        <!-- menu admin and ucliente-->
+        <div ng-if="(User.roles_id == '2') || (User.roles_id == '3')">
+        <ion-item class="item-menu" style="font-size: 18px;" menu-close ng-click="inicio()">
+        <img src="public/dist/img/Logomini.jpg" style="width:24px;">
+         &nbsp;&nbsp;
+        Inicio
+        </ion-item>
+        <ion-item ng-if="User.roles_id == '3'" class="item-menu" style="font-size: 18px;" menu-close ng-click="mipropiedad()">
+        <img src="img/icon - Mi Propiedad app-mini.png" style="width:24px;">
+         &nbsp;&nbsp;
+         Mi Propiedad
+        </ion-item>
+        <ion-item class="item-menu" style="font-size: 18px;" menu-close ng-click="reportes()">
+        <img src="img/icon reportar app-mini.png" style="width:24px;">
+         &nbsp;&nbsp;
+         Reportar Novedad
+        </ion-item>
+        <ion-item class="item-menu" style="font-size: 18px;" menu-close ng-click="pagos()">
+        <img src="img/icon Mis Pagos app-mini.png" style="width:24px;">
+         &nbsp;&nbsp;
+         Mis Pagos
+         </ion-item>
+        <ion-item class="item-menu" style="font-size: 18px;" menu-close ng-click="noticias()">
+        <img src="img/icon noticias copia app-mini.png" style="width:24px;">
+         &nbsp;&nbsp;
+         Noticias
+        </ion-item>
+        <ion-item class="item-menu" style="font-size: 18px;" menu-close ng-click="encuestas()">
+        <img src="img/icon encuestas app-mini.png" style="width:24px;">
+         &nbsp;&nbsp;
+         Encuestas
+         </ion-item>
+        <ion-item class="item-menu" style="font-size: 18px;" menu-close ng-click="solicitudes()">
+        <img src="img/icon Solicitudes app-mini.png" style="width:24px;">
+         &nbsp;&nbsp;
+         Solicitudes
+        </ion-item>
+        <ion-item class="item-menu" style="font-size: 18px;"  menu-close ng-click="inforesidencial()">
+        <img src="img/icon info residencial app-mini.png" style="width:24px;">
+         &nbsp;&nbsp;
+         Info Residencial
+         </ion-item>
+        <ion-item class="item-menu" style="font-size: 18px;" menu-close ng-click="servicios()">
+        <img src="img/icon Servicios app-mini.png" style="width:24px;">
+         &nbsp;&nbsp;
+         Servicios
+        </ion-item>
+        <ion-item class="item-menu" style="font-size: 18px;" menu-close ng-click="vecinos()">
+        <img src="img/icon vecinos app-mini.png" style="width:24px;">
+         &nbsp;&nbsp;
+         Vecinos
+        </ion-item>
+        </div>
+        <!-- fin menu -->
+
+        <ion-item class="item-menu" style="font-size: 18px;" menu-close ng-click="porteros()">
+        <img src="img/icon porteria-app-mini.png" style="width:24px;">
+         &nbsp;&nbsp;
+         Porteria
+        </ion-item>
+        
+        <div ng-if="(User.roles_id == 2) || (User.roles_id == 4)">
+            <ion-item class="item-menu" style="font-size: 18px;" menu-close ng-click="administracion()">
+            <img src="img/icon administracion-app-mini.png" style="width:24px;">
+             &nbsp;&nbsp;
+             Administracion
+            </ion-item>
+            <ion-item class="item-menu" style="font-size: 18px;" menu-close ng-click="personal()">
+            <img src="img/icon personal-app-mini.png" style="width:24px;">
+             &nbsp;&nbsp;
+             Personal de Planta
+            </ion-item>
+        </div>
+
+        <ion-item class="item-menu" style="font-size: 18px;" menu-close ng-click="logout()">
+        <img src="img/icon-Exit2.jpg" style="width:24px;">
+         &nbsp;&nbsp;
+         Cerrar Sesion
+        </ion-item>         
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

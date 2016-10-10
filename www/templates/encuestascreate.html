@@ -1,0 +1,90 @@
+<ion-view view-title="Encuestas">
+	<div class="bar bar-header bar-dark">
+        <a class="button button-icon button-clear ion-android-arrow-back" ng-click="encuestas()">
+        </a>
+		<h1 class="title">Crear Encuesta</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+	<form ng-submit="add()" name="myForm" novalidate>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Nombre de la Encuesta</span>
+                    <input ng-model="data.nombre" placeholder="Ingrese nombre de Encuesta" type="text" class="form-control input" ng-required="true">
+                </div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-8 col-sm-8 col-xs-8">
+				<div class="form-group rowbottom">
+                    <span>Pregunta:</span>
+                    <textarea ng-maxlength="200" ng-attr-rows="{{row || '5'}}" ng-model="data.pregunta"   placeholder="Describa la pregunta aqui y seleccione a la derecha el tipo de pregunta, Multiple, Si/No, o de Valoracion 5 estrellas." class="form-control input" ng-required="true"></textarea>
+                </div>
+			</div>
+			<div class="col-md-4 col-sm-4 col-xs-4">
+				<div class="form-group rowbottom">
+					<span>Tipo:</span>
+                    <select ng-model="data.tipo" ng-change="cambio(data.tipo)">
+                      <option value="0" ng-selected="true">Multiple</option>
+                      <option value="1">Si/No</option>
+                      <option value="2">Valoracion</option>
+                    </select>
+                </div>
+			</div>
+		</div>
+
+		<div ng-if="multiple == 1">
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group rowbottom">
+                <span>Opcion 1</span>
+                <input type="text" ng-required="true" placeholder="Ingrese Opcion 1" id="preguno" ng-model="data.preguno" class="form-control input">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group rowbottom">
+                <span>Opcion 2</span>
+                <input type="text" placeholder="Ingrese Opcion 2" id="pregdos" ng-model="data.pregdos" class="form-control input">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group rowbottom">
+                <span>Opcion 3</span>
+                <input type="text" placeholder="Ingrese Opcion 3" id="pregtres" ng-model="data.pregtres" class="form-control input">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group rowbottom">
+                <span>Opcion 4</span>
+                <input type="text" placeholder="Ingrese Opcion 4" id="pregcuatro" ng-model="data.pregcuatro" class="form-control input">
+                </div>
+              </div>
+            </div>
+        </div>
+
+		
+        
+		<div class="padding">
+			<div class="row">
+				<div class="col-md-6 col-sm-6 col-xs-6">
+		            <button type="submit" ng-model="data.accion" ng-click="data.accion = 'nueva'" class="button button-block button-dark" ng-disabled="myForm.$invalid">
+		            	Agregar
+		            </button>
+	            </div>
+	            <div class="col-md-6 col-sm-6 col-xs-6">
+		            <button type="submit" ng-model="data.accion"  ng-click="data.accion = 'fin'" class="button button-block button-dark" ng-disabled="myForm.$invalid">
+		            	Finalizar
+		            </button>
+	            </div>
+            </div>
+        </div>
+	</form>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,26 @@
+<ion-view view-title="home">
+    <div class="bar bar-header bar-dark">
+        <img src="public/dist/img/Logomini.jpg" style="width: 32px; margin-left: 15px;">
+        <h1 class="title">Seleccionar Edificio</h1>
+        <button ng-click="logout()" class="button button-clear" style="margin-right: 15px;">
+         <img src="public/dist/img/icon-Exit.jpg" style="height: 35px;">
+        </button>
+        
+    </div>
+    <ion-content class="has-header" padding="false">
+        <div class="card">
+          <div ng-repeat="inmueble in inmuebles">
+            <div class="item item-divider">
+               {{inmueble.nombre}}
+            </div>
+            <div class="item item-image">
+                <img ng-click="entrar(inmueble.id, inmueble.nombre, inmueble.imagen)" src="http://ihomeapp.net/imagenes/{{inmueble.imagen}}">
+            </div>
+          </div>
+          <div class="item item-image">
+              <img src="public/dist/img/escogerinmueble.jpg">
+          </div>
+        </div>
+        <br><br><br><br><br><br><br><br>
+    </ion-content>
+</ion-view>

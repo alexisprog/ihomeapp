@@ -1,0 +1,257 @@
+/*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #392B3C !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #392B3C !default;
+*/
+
+ 	
+$dark: #392B3C  !default;
+$energized: #FF9400 !default;
+$assertive: #E12229 !default;
+$positive: #F7931E !default;
+
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";
+
+
+
+.popup-container .popup {
+    background-color: #281A27;
+    color: #fff;
+}
+
+.popup-head {
+    display: none;
+}
+
+.popup-body {
+   text-align: center;
+}
+
+.menu {
+	background-color: #392B3C;
+}
+
+.item-menu {
+	background-color: #392B3C;
+	color: #fff;
+	font-size: 14px;
+	border-color: #392B3C;
+	padding-top: 10px; 
+	padding-bottom: 10px;
+}
+
+.bar.bar-dark {
+    background-color: #392B3C;
+    background-image: linear-gradient(0deg, #392B3C, #392B3C 50%, transparent 50%);
+    border-color: #392B3C;
+    color: #fff;
+}
+
+.row {
+    padding: 0px;
+}
+
+.aperso {
+    color: #000;
+}
+
+
+.row-inicio {
+    border-bottom: 1px solid #cfcfcf;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-align: center;
+    color: #000;
+    font-size: 14px;
+}
+
+.aperso:hover {
+    background-color: #efefef;
+}
+
+.ionic_timepicker_popup .font_28px {
+  font-size: 28px;
+}
+.ionic_timepicker_popup .margin_zero {
+  margin: 0;
+}
+.ionic_timepicker_popup .padding_zero {
+  padding: 0;
+}
+.ionic_timepicker_popup .popup {
+  background-color: #ffffff;
+}
+.ionic_timepicker_popup .popup-head {
+  display: none;
+}
+.ionic_timepicker_popup .popup-body {
+  padding: 0;
+}
+.ionic_timepicker_popup .popup-buttons {
+  padding: 0;
+  min-height: 44px;
+  height: 44px;
+}
+.ionic_timepicker_popup .popup-buttons .button:not(:last-child) {
+  margin-right: 1px;
+}
+.ionic_timepicker_popup .padding_left_15px {
+  padding-left: 15px;
+}
+.ionic_timepicker_popup .heading {
+  height: 44px;
+  background-color: #392B3C;
+  color: #ffffff;
+  text-align: center;
+  line-height: 44px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.ionic_timepicker_popup .time_picker_colon {
+  padding-top: 45px;
+  text-align: center;
+  font-weight: bold;
+}
+.ionic_timepicker_popup .time_picker_arrows {
+  width: 100%;
+}
+.ionic_timepicker_popup .time_picker_box_text {
+  height: 40px;
+  text-align: center;
+  border: 1px solid #dddddd;
+  font-size: 16px;
+  line-height: 38px;
+  color: #000;
+}
+.ionic_timepicker_popup .overflowShow {
+  white-space: normal !important;
+}
+.ionic_timepicker_popup .button_set, .ionic_timepicker_popup .button_close {
+  background-color: #392B3C;
+  color: #ffffff;
+}
+
+body, ionic-body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: #8a8aaa; 
+}
+
+.transparent {
+  background: transparent !important;
+}
+
+.image-modal {
+  width: 100% !important;
+  height: 100%;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+
+
+.fullscreen-image {
+  max-width: 100%;
+  max-height: 100%;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  overflow: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.slider {
+  width: 100%;
+  height: 100%;
+}
+
+p.info {
+  position: absolute;
+  bottom: 55px;
+  margin: 0 auto;
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 28px;
+  color: #ffffff;
+}
+
+.modal-backdrop-bg {
+    transition: opacity 300ms ease-in-out;
+    -webkit-transition: opacity 300ms ease-in-out;
+    background-color: #000;
+    opacity: 0;
+}
+
+.active .modal-backdrop-bg {
+    opacity: 0.5;
+}
+
+body {
+  color: #8a8aaa;
+  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(MaterialIcons-Regular.woff2) format('woff2'),
+       url(MaterialIcons-Regular.woff) format('woff'),
+       url(MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+
+
+

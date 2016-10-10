@@ -1,0 +1,105 @@
+<ion-view view-title="Encuestas">
+	<div class="bar bar-header bar-dark">
+        <a class="button button-icon button-clear ion-android-arrow-back" ng-click="encuestas()">
+        </a>
+		<h1 class="title">Responder Encuesta</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+	<form ng-submit="add()" name="myForm">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Nombre de la Encuesta</span>
+                    <input ng-model="data.nombre" type="text" class="form-control input" ng-readonly="true">
+                </div>
+			</div>
+		</div>
+
+		<div class="col-md-12 col-sm-12 col-xs-12 divgray"> PREGUNTAS </div>
+
+		<div ng-repeat="preguntas in preguntaslist" ng-init="i = $index + 1">
+			<div class="row rowbottom">
+              <div class="col-md-12 col-sm-12 col-xs-12 top10">
+                <p>
+                  {{ i }} : <span ng-bind-html="preguntas.pregunta"></span>
+                </p>
+              </div>
+            </div>	
+
+            <div ng-if="preguntas.tipo == 0">
+            <div class="row rowbottom">
+			  <div class="col-md-10 col-sm-10 col-xs-10">
+	          <p>1.- {{preguntas.preguno}}</p>
+	          </div>
+	          <div class="col-md-3 col-sm-3 col-xs-3">
+	            <i-check ng-model="data.resp[$index][0]"></i-check>
+	          </div>
+	        </div>
+	        <div class="row rowbottom">
+	          <div class="col-md-10 col-sm-10 col-xs-10">
+	          <p>2.- {{preguntas.pregdos}}</p>
+	          </div>
+	          <div class="col-md-3 col-sm-3 col-xs-3">
+	            <i-check ng-model="data.resp[$index][1]"></i-check>
+	          </div>
+			</div>
+			<div class="row rowbottom">
+	          <div class="col-md-10 col-sm-10 col-xs-10">
+	          <p>3.- {{preguntas.pregtres}}</p>
+	          </div>
+	          <div class="col-md-3 col-sm-3 col-xs-3">
+	            <i-check ng-model="data.resp[$index][2]"></i-check>
+	          </div>
+	        </div>
+	        <div class="row rowbottom">
+	          <div class="col-md-10 col-sm-10 col-xs-10">
+	          <p>4.- {{preguntas.pregcuatro}}</p>
+	          </div>
+	          <div class="col-md-3 col-sm-3 col-xs-3">
+	            <i-check ng-model="data.resp[$index][3]"></i-check>
+	          </div>
+	        </div>
+			</div>	
+
+			<div ng-if="preguntas.tipo == 1">
+				<div class="padding">
+				<div class="row">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                      <center>
+                        <p><b>SI</b></p>
+                        <i-check ng-model="data.resp[$index][0]"></i-check>
+                      </center>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                      <center>
+                        <p><b>NO</b></p>
+                        <i-check ng-model="data.resp[$index][1]"></i-check>
+                      </center>
+                  </div>
+                </div>
+                </div>
+			</div>
+
+			<div ng-if="preguntas.tipo == 2">
+				<div class="row">
+                  	<jk-rating-stars rating="data.resp[$index][0]"  max-rating="5" min-rating="1"></jk-rating-stars>
+                </div>
+			</div>
+
+			
+
+		</div>
+
+			<div class="padding">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+		            <button type="submit" class="button button-block button-dark">
+		            	Responder
+		            </button>
+	            </div>
+            </div>
+        </div>
+		<br><br>
+		</form>
+	</ion-content>
+</ion-view>

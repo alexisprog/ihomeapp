@@ -1,0 +1,51 @@
+<ion-view view-title="Reportes Novedades">
+	<div class="bar bar-header bar-dark">
+        <button class="button button-icon button-clear ion-android-arrow-back" ui-sref="app.inicio">
+        </button>
+		<h1 class="title">Reportes Novedades</h1>
+		<a ng-if="User.roles_id == '3'" class="button button-icon icon ion-android-add" ui-sref="reportescreate"></a>
+	</div>
+	<ion-content  class="has-header" padding="false">
+		<div ng-repeat="reporte in reportesdanos">
+	    <div class="row rowbottom" ng-if="reporte.vecinos.inmuebles_id == inmueble_id">
+	    	<div class="col-md-3 col-sm-3 col-xs-3 lefttop">
+                <div class="divblue" ng-if="reporte.status == '1' || reporte.status == '3'" style="height: 78px;">
+                  <img src="public/dist/img/Check.gif">
+                </div>
+                <div class="divorage" ng-if="reporte.status != '1' && reporte.status != '3'" style="height: 78px;">
+                  <img src="public/dist/img/Clock.png">
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-7 top10">
+            	<a ng-click="reportesedit(reporte.id)">
+	        		<p style="color: #8a8aaa; text-align: justify;">
+		            	{{reporte.titulo}} <br>
+		            	{{reporte.vecinos.usuarios.name}} - Apto {{reporte.vecinos.apartamento}}
+		            </p>
+	            </a>
+            </div> 
+            <div class="col-md-1 col-sm-1 col-xs-1 top20">
+            	<div ng-if="reporte.status == '2' && User.roles_id == '2'">
+            		<div style="position: relative;">
+		                <div style="position: absolute;"> 
+		                  <span class="label label-primary pull-right"><img style="height: 10px;" src="public/dist/img/Email.png"></span> 
+		                </div>
+		            </div>
+            	</div>
+            	<div ng-if="reporte.status == '3' && User.roles_id == '3'">
+            		<div style="position: relative;">
+		                <div style="position: absolute;"> 
+		                  <span class="label label-primary pull-right"><img style="height: 10px;" src="public/dist/img/Email.png"></span> 
+		                </div>
+		            </div>
+            	</div>
+	        </div>
+	        <div class="col-md-1 col-sm-1 col-xs-1 top20" ng-if="User.roles_id == '2'">
+                <a ng-click="eliminarreporte(reporte.id)">
+                  <img src="public/dist/img/icon-Trash.gif">
+                </a>
+            </div>     
+     	</div>
+     	</div>
+	</ion-content>
+</ion-view>

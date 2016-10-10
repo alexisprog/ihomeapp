@@ -1,0 +1,68 @@
+<ion-view view-title="Mi Propiedad">
+	<div class="bar bar-header bar-dark">
+        <button class="button button-icon button-clear ion-android-arrow-back" ui-sref="app.inicio">
+        </button>
+		<h1 class="title">Mi Propiedad</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+	<br>
+			<center>
+                <round-progress
+                max="max"
+			    current="current"
+			    color="#45ccce"
+			    bgcolor="#eaeaea"
+			    radius="80"
+			    stroke="10"
+			    rounded="true"
+			    clockwise="true"
+			    responsive="false"
+			    duration="1800"
+			    animation="easeOutBack"
+			    animation-delay="0">
+			    </round-progress>
+			    <h1 style="color: #8A8AAA;">{{current}}</h1>
+			    <span style="color: #8A8AAA;">AVALUO EN MILLONES</span>
+			</center>
+
+		<div class="row">
+			<div class="col-md-8 col-sm-8 col-xs-8 top20">
+              <i class="fa fa-circle-thin"></i> AÑOS DE CONSTRUCCÍON
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4 top20">
+              <span>{{propiedadeslist.construccion}} AÑOS</span>
+            </div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-sm-8 col-xs-8 top20">
+              <i class="fa fa-circle-thin"></i> PLANOS DEL INMUBLE
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4 top20">
+              <a ng-click="verplanos(propiedadeslist.id)" class="btn btnorage btn-block">VER</a>
+            </div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-sm-8 col-xs-8 top20">
+              <i class="fa fa-circle-thin"></i> ESCRITURAS DEL INMUBLE
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-4 top20">
+              <a ng-click="verescrituras(propiedadeslist.id)" class="btn btnpurple btn-block">VER</a>
+            </div>
+		</div>
+		<br>
+        <center>
+        <a ng-click="mipropiedadedit(propiedadeslist.id)" class="btn btncircle" ><img  src="public/dist/img/Edit.png" ></a>
+        </center>
+
+        <script id="image-modal.html" type="text/ng-template">
+	         <ion-modal-view class="image-modal transparent" ng-click="closeModal()">
+	            <ion-slide-box on-slide-changed="slideChanged(index)" show-pager="true">
+	              <ion-slide ng-repeat="oImage in aImages">
+	                <img src="http://ihomeapp.net/imagenes/{{oImage.imagen}}" class="fullscreen-image" />
+	                <p class="info">{{msj}}</p>
+	              </ion-slide>
+	            </ion-slide-box>
+	         </ion-modal-view>
+     	</script>
+	</ion-content>
+</ion-view>

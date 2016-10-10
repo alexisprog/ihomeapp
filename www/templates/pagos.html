@@ -1,0 +1,29 @@
+<ion-view view-title="Mis Pagos">
+	<div class="bar bar-header bar-dark">
+        <button class="button button-icon button-clear ion-android-arrow-back" ui-sref="app.inicio">
+        </button>
+		<h1 class="title">Mis Pagos</h1>
+		<!--<a ng-if="User.roles_id == '2'" class="button button-icon icon ion-android-add" ng-click="pagoscreate()"></a>-->
+	</div>
+	<ion-content  class="has-header" padding="false">
+	    <div class="row rowbottom" ng-repeat="pago in pagoslist" >
+	    	<div class="col-md-3 col-sm-3 col-xs-3 lefttop">
+                <div class="divblue" ng-if="pago.status == '1'" style="height: 78px;">
+                  <img src="public/dist/img/Check.gif">
+                </div>
+                <div class="divorage" ng-if="pago.status != '1'" style="height: 78px;">
+                  <img src="public/dist/img/Clock.png">
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-9 col-xs-9 top10">
+            	<a ng-click="pagosshow(pago.id)">
+	        		<p style="color: #8a8aaa; text-align: justify;">
+		            	{{pago.titulo}} <br>
+		            	Vence: {{pago.vencimiento}} <br>
+		            	Valor: {{pago.monto}}
+		            </p>
+	            </a>
+            </div>        
+     	</div>
+	</ion-content>
+</ion-view>

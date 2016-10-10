@@ -1,0 +1,63 @@
+<ion-view view-title="Chat">
+	<div class="bar bar-header bar-dark">
+        <a class="button button-icon button-clear ion-android-arrow-back" ui-sref="app.inicio">
+        </a>
+		<h1 class="title" ng-if="User.roles_id == 2">Chat con Porteria</h1>
+    <h1 class="title" ng-if="User.roles_id == 4">Chat con Administrador</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+		
+
+		<div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="box box-success direct-chat direct-chat-success">
+              
+              <div class="box-body">
+             
+                <div class="direct-chat-messages" style="height: 400px;">
+
+                <div ng-show="!chatlist.length" class="well text-center">No existen respuestas.</div>
+
+                <div ng-repeat="respuesta in chatlist">
+
+                	<div ng-if="respuesta.usuarios.roles_id == '4'" class="direct-chat-msg">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-left">{{ respuesta.usuarios.name }}</span>
+                        <span class="direct-chat-timestamp pull-right">{{respuesta.updated_at | date : 'short' }}</span>
+                      </div> 
+                      <div class="direct-chat-text">
+                        {{ respuesta.mensaje }}
+                      </div>
+                    </div>
+
+                    <div ng-if="respuesta.usuarios.roles_id != '4'" class="direct-chat-msg right">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-right">{{ respuesta.usuarios.name }}</span>
+                        <span class="direct-chat-timestamp pull-left">{{respuesta.updated_at | date : 'short' }}</span>
+                      </div>
+                      <div class="direct-chat-text">
+                        {{ respuesta.mensaje }}
+                      </div>
+                    </div> 
+                	
+                </div>
+
+                </div><!--/.direct-chat-messages-->
+
+                
+                </div><!-- /.box-body -->
+                <div class="box-footer" >
+                  <div class="input-group">
+                    <input type="text" ng-model="mensaje" value="" placeholder="Escriba un mensaje..." class="form-control"></input>
+                    <span class="input-group-btn">
+                      <a class="btn btn-success btn-flat" ng-click="addResp(mensaje)">Send</a>
+                    </span>
+                </div>
+              </div><!-- /.box-footer-->
+              </div><!--/.direct-chat -->
+            </div>
+          </div>
+		 
+        <br><br><br><br><br><br>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,85 @@
+<ion-view view-title="Encuestas">
+	<div class="bar bar-header bar-dark">
+        <button class="button button-icon button-clear ion-android-arrow-back" ui-sref="app.inicio">
+        </button>
+		<h1 class="title">Encuestas</h1>
+		<a ng-if="User.roles_id == '2'" class="button button-icon icon ion-android-add" ui-sref="encuestascreate"></a>
+	</div>
+	<ion-content  class="has-header" padding="false">
+		<div ng-repeat="encuesta in encuestaslist">
+		
+	    <div class="row rowbottom" ng-if="((encuesta.status == 1 && User.roles_id == 3) || User.roles_id == 2)">
+
+	    	<div class="col-md-2 col-sm-2 col-xs-2 lefttop">
+
+	    		<div ng-if="User.roles_id == 3">
+	    			<div ng-repeat="encuesta3 in encuestasresplist | filter:{ encuestas_id: encuesta.id } as results">
+	    			</div>
+	    			<div class="divgris" ng-if="results.length >= 1" style="height: 78px;">
+	                  <img src="public/dist/img/Completed.png">
+	                </div>
+	    			<div class="divblue" ng-if="results.length === 0" style="height: 78px;">
+                      <img src="public/dist/img/Alerta.png">
+                    </div> 
+	    		</div>
+
+	    		<div ng-if="User.roles_id == 2">
+	    			<div class="divblue" ng-if="encuesta.status == 0" style="height: 78px;">
+	                  <img src="public/dist/img/Alerta.png">
+	                </div>
+	                <div class="divgris" ng-if="encuesta.status != 0" style="height: 78px;">
+                      <img src="public/dist/img/Completed.png">
+                    </div>
+	    		</div>
+                
+            </div>
+
+            <div class="col-md-9 col-sm-9 col-xs-9 top10">
+            	<a ng-click="encuestasedit(encuesta.id)" ng-if="encuesta.status == 0 && User.roles_id == 2">
+	        		<p style="color: #8a8aaa; text-align: justify;">
+		            	{{encuesta.nombre}} <br>
+		            	{{encuesta.updated_at}}
+		            </p>
+	            </a>
+	            <a ng-click="encuestasshow(encuesta.id)" ng-if="encuesta.status == 1 && User.roles_id == 3">
+	        		<p style="color: #0f0f2f; text-align: justify;">
+		            	{{encuesta.nombre}} <br>
+		            	{{encuesta.updated_at}}
+		            </p>
+	            </a>
+	            <div ng-if="(encuesta.status != 0 && User.roles_id == 2) || (encuesta.status != 1 && User.roles_id == 3)">
+	        		<p style="color: #8a8aaa; text-align: justify;">
+		            	{{encuesta.nombre}} <br>
+		            	{{encuesta.updated_at}}
+		            </p>
+	            </div>
+            </div>     
+
+            <div class="col-md-1 col-sm-1 lefttop">
+            	<div ng-if="User.roles_id == 3">
+            		<div ng-repeat="encuesta3 in encuestasresplist | filter:{ encuestas_id: encuesta.id } as results">
+	    			</div>
+	    			<div class="divpurple2" ng-if="results.length >= 1" style="height: 78px;">
+	                    <a ng-click="encuestasresultados(encuesta.id)">
+                            <img src="public/dist/img/Estatistic2.png">
+                        </a>
+	                </div>
+	    			<div class="divgris2" ng-if="results.length === 0" style="height: 78px;">
+                      <img src="public/dist/img/Estatistic1.png">
+                    </div>	                            		
+            	</div>
+            	<div ng-if="User.roles_id == 2">
+            		<div class="divpurple2" ng-if="encuesta.status == 1" style="height: 78px;">
+	                    <a ng-click="encuestasresultados(encuesta.id)">
+                            <img src="public/dist/img/Estatistic2.png">
+                        </a>
+	                </div>
+	                <div class="divgris2" ng-if="encuesta.status != 1" style="height: 78px;">
+                      <img src="public/dist/img/Estatistic1.png">
+                    </div>
+            	</div>
+            </div>   
+     	</div>
+     	</div>
+	</ion-content>
+</ion-view>

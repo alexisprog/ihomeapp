@@ -1,0 +1,53 @@
+<ion-view view-title="Solicitudes">
+	<div class="bar bar-header bar-dark">
+        <button class="button button-icon button-clear ion-android-arrow-back" ng-click="solicitudes()">
+        </button>
+		<h1 class="title">Aprobar Solicitud</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+		<div class="row rowbottom">
+	    	<div class="col-md-2 col-sm-2 col-xs-5 topbottom20">
+	            <center>
+	              <img width="100%" src="http://ihomeapp.net/imagenes/{{vecinoslist.imagen}}" class="img-circle" alt="User Image">
+	            </center>
+	        </div>
+	        <div class="col-md-10 col-sm-10 col-xs-7 top10">
+	        	{{vecinoslist.usuarios.name}}<br>
+	        	<span ng-if="vecinoslist.ismiembro == 1" class="label label-success">Miembro del Conjunto</span>
+                <p>
+                   {{vecinoslist.usuarios.email}}<br>
+                   Apartamento/Casa: {{vecinoslist.apartamento}}<br>
+                   {{vecinoslist.telefono}}<br>
+                   {{vecinoslist.profesion}}<br>
+                </p>                   
+            </div>       
+     	</div>
+
+     	<div class="row rowbottom">
+          <div class="col-md-12 col-sm-12 top12">
+             <p>{{solicitudeslist.actividades.nombre}}</br>
+             Descripcion: {{solicitudeslist.descripcion}} </br>
+             {{solicitudeslist.horainicio}} | {{solicitudeslist.horafinal}} | {{solicitudeslist.fecha}}</br>
+             <div ng-if="solicitudeslist.status == '1'">Aprobado</div>
+             <div ng-if="solicitudeslist.status == '2'">Rechazado</div>
+             <div ng-if="solicitudeslist.status == '0'">Pendiente</div>
+             </p>                      
+          </div>
+        </div>
+        <br>
+        <div class="col-md-12 col-sm-12 col-xs-12 top12 divgray"> ¿Quiere Aprobar o Rechazar esta Solicitud? </div>
+
+        <div class="row rowbottom">
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            <button class="btn btnpurple btn-block" ng-click="enviar('rechazar', solicitudeslist.id)" >
+              <img src="public/dist/img/Close.gif">
+            </button>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            <button class="btn btnblue btn-block"  ng-click="enviar('aprobar', solicitudeslist.id)" >
+              <img src="public/dist/img/Check.gif">
+            </button>
+        </div>
+        </div>
+	</ion-content>
+</ion-view>

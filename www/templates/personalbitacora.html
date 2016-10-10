@@ -1,0 +1,42 @@
+<ion-view view-title="Bitácora Personal de Planta">
+	<div class="bar bar-header bar-dark">
+        <button class="button button-icon button-clear ion-android-arrow-back" ng-click="personal()">
+        </button>
+		<h1 class="title">Bitácora Personal de Planta</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12 top10">
+            <form ng-submit="add()" name="myForm" novalidate>
+            <div class="form-group rowbottom">
+            <span>Email de Empresa Segurdad</span>
+            <input type="email" ng-required="true"  ng-model="data.email" placeholder="Ingrese correo electronico" class="form-control input">
+            </div>
+            <div class="padding">
+	            <button type="submit" class="button button-block button-dark" ng-disabled="myForm.$invalid">
+	            	<i class="icon ion-android-mail"></i>
+	            </button>
+	        </div>
+            </form>
+            </div>
+        </div>
+
+		<div ng-repeat="reportespersonal in reportespersonallist">
+		    <div class="row rowbottom" ng-if="reportespersonal.personal.inmuebles_id == inmueble_id">
+		        <div class="col-md-4 col-sm-4 col-xs-4 topbottom20">
+		            <center>
+		              <img width="100%" src="http://ihomeapp.net/imagenes/{{reportespersonal.imagen}}" alt="User Image">
+		            </center>
+		        </div>
+		        <div class="col-md-8 col-sm-8 col-xs-8 top10">
+                    <b>{{reportespersonal.personal.name}}</b> <br>
+                    Cedula: {{reportespersonal.personal.cedula}} <br>
+                    {{reportespersonal.personal.departamento}} <br>
+                    <b>Accion: {{reportespersonal.accion}}</b> <br>
+                    Fecha: {{reportespersonal.created_at | date : 'short' }}
+                </div>       
+	     	</div>
+     	</div>
+	</ion-content>
+</ion-view>

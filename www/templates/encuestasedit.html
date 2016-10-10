@@ -1,0 +1,172 @@
+<ion-view view-title="Encuestas">
+	<div class="bar bar-header bar-dark">
+        <a class="button button-icon button-clear ion-android-arrow-back" ng-click="encuestas()">
+        </a>
+		<h1 class="title">Editar Encuesta</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+	
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Nombre de la Encuesta</span>
+                    <input ng-model="data.nombre" type="text" class="form-control input" ng-readonly="true">
+                </div>
+			</div>
+		</div>
+
+		<div class="col-md-12 col-sm-12 col-xs-12 divgray"> PREGUNTAS </div>
+
+		<div ng-repeat="preguntas in preguntaslist" ng-init="i = $index + 1">
+			<div class="row rowbottom">
+              <div class="col-md-12 col-sm-12 col-xs-12 top10">
+                <p>
+                  {{ i }} : <span ng-bind-html="preguntas.pregunta"></span>
+                </p>
+              </div>
+            </div>	
+
+            <div ng-if="preguntas.tipo == 0">
+            <div class="row rowbottom">
+			  <div class="col-md-10 col-sm-10 col-xs-10">
+	          <p>1.- {{preguntas.preguno}}</p>
+	          </div>
+	          <div class="col-md-3 col-sm-3 col-xs-3">
+	            <i-check ng-model="data.optuno"></i-check>
+	          </div>
+	        </div>
+	        <div class="row rowbottom">
+	          <div class="col-md-10 col-sm-10 col-xs-10">
+	          <p>2.- {{preguntas.pregdos}}</p>
+	          </div>
+	          <div class="col-md-3 col-sm-3 col-xs-3">
+	            <i-check ng-model="data.optuno"></i-check>
+	          </div>
+			</div>
+			<div class="row rowbottom">
+	          <div class="col-md-10 col-sm-10 col-xs-10">
+	          <p>3.- {{preguntas.pregtres}}</p>
+	          </div>
+	          <div class="col-md-3 col-sm-3 col-xs-3">
+	            <i-check ng-model="data.optuno"></i-check>
+	          </div>
+	        </div>
+	        <div class="row rowbottom">
+	          <div class="col-md-10 col-sm-10 col-xs-10">
+	          <p>4.- {{preguntas.pregcuatro}}</p>
+	          </div>
+	          <div class="col-md-3 col-sm-3 col-xs-3">
+	            <i-check ng-model="data.optuno"></i-check>
+	          </div>
+	        </div>
+			</div>	
+
+			<div ng-if="preguntas.tipo == 1">
+				<div class="padding">
+				<div class="row">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                      <center>
+                        <p><b>SI</b></p>
+                        <i-check ng-model="data.optuno"></i-check>
+                      </center>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                      <center>
+                        <p><b>NO</b></p>
+                        <i-check ng-model="data.optuno"></i-check>
+                      </center>
+                  </div>
+                </div>
+                </div>
+			</div>
+
+			<div ng-if="preguntas.tipo == 2">
+				<div class="row">
+                  	<jk-rating-stars rating="firstRate" max-rating="5" min-rating="1"></jk-rating-stars>
+                </div>
+			</div>
+
+			<div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <a ng-click="delete(preguntas.id)" class="btn btnpurple btn-block transparente">Eliminar Pregunta</a>
+              </div>
+            </div>
+
+		</div>
+		<br><br>
+		<div class="col-md-12 col-sm-12 col-xs-12 divgray"> PREGUNTA NUEVA </div>
+                <br><br>
+
+		<form ng-submit="add()" name="myForm" novalidate>
+		
+		<div class="row">
+			<div class="col-md-10 col-sm-10 col-xs-10">
+				<div class="form-group rowbottom">
+                    <span>Pregunta:</span>
+                    <textarea ng-maxlength="200" ng-attr-rows="{{row || '5'}}" ng-model="data.pregunta"   placeholder="Describa la pregunta aqui y seleccione a la derecha el tipo de pregunta, Multiple, Si/No, o de Valoracion 5 estrellas." class="form-control input" ng-required="true"></textarea>
+                </div>
+			</div>
+			<div class="col-md-4 col-sm-4 col-xs-4">
+				<div class="form-group rowbottom">
+					<span>Tipo:</span>
+                    <select ng-model="data.tipo" ng-change="cambio(data.tipo)">
+                      <option value="0" ng-selected="true">Multiple</option>
+                      <option value="1">Si/No</option>
+                      <option value="2">Valoracion</option>
+                    </select>
+                </div>
+			</div>
+		</div>
+
+		<div ng-if="multiple == 1">
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group rowbottom">
+                <span>Opcion 1</span>
+                <input type="text" ng-required="true" placeholder="Ingrese Opcion 1" id="preguno" ng-model="data.preguno" class="form-control input">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group rowbottom">
+                <span>Opcion 2</span>
+                <input type="text" placeholder="Ingrese Opcion 2" id="pregdos" ng-model="data.pregdos" class="form-control input">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group rowbottom">
+                <span>Opcion 3</span>
+                <input type="text" placeholder="Ingrese Opcion 3" id="pregtres" ng-model="data.pregtres" class="form-control input">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="form-group rowbottom">
+                <span>Opcion 4</span>
+                <input type="text" placeholder="Ingrese Opcion 4" id="pregcuatro" ng-model="data.pregcuatro" class="form-control input">
+                </div>
+              </div>
+            </div>
+        </div>
+        
+		<div class="padding">
+			<div class="row">
+				<div class="col-md-6 col-sm-6 col-xs-6">
+		            <button type="submit" ng-model="data.accion" ng-click="data.accion = 'nuevados'" class="button button-block button-dark" ng-disabled="myForm.$invalid">
+		            	Agregar
+		            </button>
+	            </div>
+	            <div class="col-md-6 col-sm-6 col-xs-6">
+		            <button type="submit" ng-model="data.accion"  ng-click="data.accion = 'findos'" class="button button-block button-dark" ng-disabled="myForm.$invalid">
+		            	Finalizar
+		            </button>
+	            </div>
+            </div>
+        </div>
+	</form>
+	</ion-content>
+</ion-view>

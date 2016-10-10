@@ -1,0 +1,33 @@
+<ion-view view-title="Noticias">
+	<div class="bar bar-header bar-dark">
+        <a class="button button-icon button-clear ion-android-arrow-back" ng-click="noticias()">
+        </a>
+		<h1 class="title">Ver Noticia</h1>
+	</div>
+	<ion-content  class="has-header" padding="false">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Titulo</span>
+                    <p style="color: #8a8aaa; text-align: justify;">{{noticias2.titulo}}</p>
+                </div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="form-group rowbottom">
+                    <span>Descripci&oacute;n</span>
+                    <p style="color: #8a8aaa;" ng-bind-html="noticias2.descripcion"></p>
+                </div>
+			</div>
+		</div>	
+		<div class="padding">
+            <center>
+            <img style="width: 100%;" src="http://ihomeapp.net/imagenes/{{noticias2.imagen}}">
+		    </center>
+		</div>   
+
+		 
+        <br><br><br><br><br><br>
+	</ion-content>
+</ion-view>

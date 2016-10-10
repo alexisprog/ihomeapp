@@ -1,0 +1,35 @@
+<ion-view view-title="Noticias">
+	<div class="bar bar-header bar-dark">
+        <button class="button button-icon button-clear ion-android-arrow-back" ui-sref="app.inicio">
+        </button>
+		<h1 class="title">Noticias</h1>
+		<a ng-if="User.roles_id == '2'" class="button button-icon icon ion-android-add" ui-sref="noticiascreate"></a>
+	</div>
+	<ion-content  class="has-header" padding="false">
+	    <div class="row rowbottom" ng-repeat="noticia in noticiaslist" >
+	    	<div ng-if="User.roles_id == '3'" class="col-md-3 col-sm-3 col-xs-3 lefttop">
+	    		<div ng-repeat="notivec in noticiasvecinoslist | filter:{ noticias_id: noticia.id } as results">
+    			</div>
+    			<div class="divblue" ng-if="results.length >= 1">
+                  <img src="public/dist/img/Check.gif">
+                </div>
+    			<div class="divorage" ng-if="results.length === 0">
+                  <img src="public/dist/img/Email.png">
+                </div> 
+	    	</div>
+	    	<div ng-if="User.roles_id == '2'" class="col-md-3 col-sm-3 col-xs-3 lefttop">
+		    	<div class="divpurple">
+	              <img src="public/dist/img/Edit.png">
+	            </div>
+            </div>
+            <div class="col-md-9 col-sm-9 col-xs-9 top10">
+            	<a ng-click="noticiasshow(noticia.id)">
+	        		<p style="color: #8a8aaa; text-align: justify;">
+		            	{{noticia.titulo}} <br>
+		            	{{noticia.updated_at | date : 'short' }}
+		            </p>
+	            </a>
+            </div>        
+     	</div>
+	</ion-content>
+</ion-view>

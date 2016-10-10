@@ -1,0 +1,33 @@
+<ion-view view-title="Personal Planta">
+	<div class="bar bar-header bar-dark">
+        <button class="button button-icon button-clear ion-android-arrow-back" ui-sref="app.inicio">
+        </button>
+		<h1 class="title">Personal de Planta</h1>
+		<a ng-if="User.roles_id == '2'" class="button button-icon icon ion-android-add" ui-sref="personalcreate"></a>
+	</div>
+	<ion-content  class="has-header" padding="false">
+
+		<div class="row rowbottom">
+            <a ng-click="personalbitacora()" type="button" class="btn btnpurplelg btn-block">
+              Ver Bitacora Personal Planta
+            </a>
+        </div>
+
+		<div ng-repeat="personal in personallist">
+		    <div class="row rowbottom">
+		    	<div class="col-md-4 col-sm-4 col-xs-4 topbottom20">
+		            <center>
+		              <img src="http://ihomeapp.net/imagenes/{{personal.imagen}}" class="img-circle" alt="User Image">
+		            </center>
+		        </div>
+		        <div class="col-md-8 col-sm-8 col-xs-8 top10">
+		        	<p>
+		        	Cedula: {{personal.cedula}}<br>
+		        	{{personal.name}}<br>
+	                <b>{{personal.departamento}} </b>               
+	                </p>	                   
+	            </div>       
+	     	</div>
+     	</div>
+	</ion-content>
+</ion-view>

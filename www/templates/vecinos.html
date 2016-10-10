@@ -1,0 +1,33 @@
+<ion-view view-title="Vecinos">
+	<div class="bar bar-header bar-dark">
+        <button class="button button-icon button-clear ion-android-arrow-back" ui-sref="app.inicio">
+        </button>
+		<h1 class="title">Mis Vecinos</h1>
+		<a ng-if="User.roles_id == '2'" class="button button-icon icon ion-android-add" ui-sref="vecinoscreate"></a>
+	</div>
+	<ion-content  class="has-header" padding="false">
+		<div ng-repeat="vecino in vecinoslist">
+		    <div class="row rowbottom">
+		    	<div class="col-md-2 col-sm-2 col-xs-5 topbottom20">
+		            <center>
+		              <img width="100%" src="http://ihomeapp.net/imagenes/{{vecino.imagen}}" class="img-circle" alt="User Image">
+		            </center>
+		        </div>
+		        <div class="col-md-10 col-sm-10 col-xs-7 top10">
+		        	{{vecino.usuarios.name}}<br>
+		        	<span ng-if="vecino.ismiembro == 1" class="label label-success">Miembro del Consejo</span>
+	                <p ng-if="(User.roles_id == 2)||(vecino.mostrar_info == '1')">
+	                   {{vecino.usuarios.email}}<br>
+	                   Apartamento/Casa: {{vecino.apartamento}}<br>
+	                   {{vecino.telefono}}<br>
+	                   {{vecino.profesion}}<br>
+	                </p>
+	                <p ng-if="(User.roles_id == 3) && (vecino.mostrar_info == '0')">
+	                	informacion de vecino privada
+	                </p>
+	                   
+	            </div>       
+	     	</div>
+     	</div>
+	</ion-content>
+</ion-view>
