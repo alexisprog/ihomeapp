@@ -46,8 +46,11 @@
           </ion-item>
         </span> 
 
-        <ion-item class="item-menu" style="font-size: 18px;" menu-close ng-click="cambiarpassword()" >
+        <ion-item class="item-menu" style="font-size: 16px;" menu-close ng-click="cambiarpassword()" >
             Cambiar Password
+        </ion-item>
+        <ion-item ng-if="(User.roles_id == '2') || (User.roles_id == '3')" class="item-menu" style="font-size: 16px;" menu-close ng-click="cambiaredificio()" >
+            Cambiar Edificio
         </ion-item>
 
 

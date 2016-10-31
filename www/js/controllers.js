@@ -8,7 +8,7 @@ angular.module('starter.controllers', [])
               noBackdrop: false
             });
   if(localStorageService.get('logueado')){
-
+    
     $rootScope.User = JSON.parse(localStorageService.get('user'));
     $rootScope.inmueble_id = localStorageService.get('inmueble_id');
     $rootScope.inmueble_nombre = localStorageService.get('inmueble_nombre');
@@ -16,7 +16,7 @@ angular.module('starter.controllers', [])
     if ($rootScope.User.roles_id == '3') {
       $rootScope.Vecinos = JSON.parse(localStorageService.get('vecinos'));
     }
-
+    
     $ionicLoading.hide();
 
     $state.go('app.inicio'); //aqui la funcion que muestra el menu principal
@@ -315,6 +315,10 @@ angular.module('starter.controllers', [])
 
   $scope.cambiarpassword = function(){
     $state.go('cambiarpassword');
+  }
+
+  $scope.cambiaredificio = function(){
+    $state.go('home');
   }
 
 

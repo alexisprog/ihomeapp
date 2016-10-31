@@ -41,23 +41,37 @@ angular.module('starter', ['ionic',
       StatusBar.styleDefault();
     }
 
-    
+    //version nueva de onesignal
+
+    // Set your iOS Settings
+    var iosSettings = {};
+    iosSettings["kOSSettingsKeyAutoPrompt"] = true;
+    iosSettings["kOSSettingsKeyInAppLaunchURL"] = false;
+
+    var notificationOpenedCallback = function(jsonData) {
+      console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+    };
+
+    window.plugins.OneSignal
+      .startInit("417d291e-a6f4-4724-bae6-575e37115fc6", "547636667025")
+      .handleNotificationOpened(notificationOpenedCallback)
+      .inFocusDisplaying(window.plugins.OneSignal.OSInFocusDisplayOption.Notification)
+      .iOSSettings(iosSettings)
+      .endInit();
+
+     /*
       var notificationOpenedCallback = function(jsonData) {
         if (jsonData.additionalData && jsonData.additionalData.targetUrl) {
             var state = $injector.get($state);
             state.go(jsonData.additionalData.targetUrl);
         }
       }
-      
 
       window.plugins.OneSignal.init("417d291e-a6f4-4724-bae6-575e37115fc6",
                                      {googleProjectNumber: "547636667025"},
                                       notificationOpenedCallback);
-
+      */
       
-      // Show an alert box if a notification comes in when the user is in your app.
-      window.plugins.OneSignal.enableInAppAlertNotification(false);
-      window.plugins.OneSignal.enableNotificationsWhenActive(false);
 
       window.plugins.OneSignal.getIds(function(ids) {
         console.log('getIds: ' + JSON.stringify(ids));
@@ -112,11 +126,14 @@ angular.module('starter', ['ionic',
 
    confirmPopup.then(function(res) {
      if(res) {
+
+       
       $ionicLoading.show({
               template: '<ion-spinner icon="android"></ion-spinner>',
               animation: 'fade-in',
               noBackdrop: false
             });
+      
      
       $http.get($rootScope.ruta+'authenticate/limpiar/'+$rootScope.User.id)
           .success(function(response){
@@ -127,7 +144,7 @@ angular.module('starter', ['ionic',
               console.log(response);
           }); 
 
-
+        
        $auth.logout().then(function() {
             
           localStorageService.set('logueado', false);
