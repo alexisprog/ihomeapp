@@ -1,4 +1,4 @@
-angular.module('starter.routes', ['satellizer', 'permission'])
+angular.module('starter.routes', ['satellizer'])
 
 .config(function($stateProvider, $cordovaInAppBrowserProvider, $urlRouterProvider, $authProvider, $ionicConfigProvider, ionicTimePickerProvider) {
   $ionicConfigProvider.views.maxCache(0);

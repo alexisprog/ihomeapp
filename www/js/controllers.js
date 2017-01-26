@@ -2214,7 +2214,7 @@ angular.module('starter.controllers', [])
 
       $cordovaFileTransfer.download(url, targetPath, {}, true).then(function (result) {
             $ionicLoading.hide();
-            $cordovaInAppBrowser.open(targetPath, '_system', options)
+            $cordovaInAppBrowser.open(targetPath, '_black', options)
             .then(function(event) {
               // success
             })

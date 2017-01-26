@@ -13,7 +13,9 @@ angular.module('starter', ['ionic',
                            'colorpicker.module',
                            'wysiwyg.module'])
 
-.run(function($ionicPlatform, localStorageService, $rootScope, $auth, $http, $state, $ionicHistory, $ionicPopup, $ionicLoading) {
+.run(function($ionicPlatform, 
+              localStorageService, 
+              $rootScope, $auth, $http, $state, $ionicHistory, $ionicPopup, $ionicLoading) {
 
     $rootScope.ruta = 'http://ihomeapp.net/api/v1/';
     //$rootScope.ruta = 'http://localhost/ihome/public/api/v1/';
